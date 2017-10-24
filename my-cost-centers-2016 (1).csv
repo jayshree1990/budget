@@ -1,0 +1,10 @@
+Cost Center ID,Cost Center Description,Budgeted Revenue,Actual Revenue,Budgeted Expenses,Actuals and Encumbrances,Remaining Expenses,% Spent
+'00000',General : Main Campus : Operating Fund : Current Unrestricted : General,"$60,871,469.00 ","$290,203.30 ","$271,732.00 ","$1,143,346.50 ","($871,614.50)",421%
+'00000',General : Main Campus : Temporarily Restricted : Current Restricted : General,"$380,274.00 ",$0.00 ,,,,
+'00000',General : Main Campus : Temporarily Restricted : Current Unrestricted : General,"$257,548.00 ",$0.00 ,,,,
+'00000',General : East Campus : Operating Fund : General : General,"$222,312.00 ","$2,000,013,799.00 ",,,,
+'00000',General : Main Campus : Operating Fund : General : General,"$604,136.00 ","$85,250.58 ",,,,
+'00000',General : South Campus : Operating Fund : General : General,"$222,312.00 ","$8,600.00 ",,,,
+'00000',General : Online Campus : Operating Fund : General : General,"$222,312.00 ",$0.00 ,,,,
+'62004',Information Tech Serv : Main Campus : Operating Fund : Current Unrestricted : General,,,"$1,504,235.00 ",$0.00 ,"$1,504,235.00 ",0%
+'62004',Information Tech Serv : South Campus : Operating Fund : General : General Institutional Support,,,"$1,835,324.00 ",$0.00 ,"$1,835,324.00 ",0%
