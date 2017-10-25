@@ -458,7 +458,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group first">
                                                                 <label>Account</label>
-                                                                <input type="text" class="form-control" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
+                                                                <input type="text" class="form-control fromaccount" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
                                                                <!-- <select class="selectpicker" data-live-search="true">
                                                                     <option data-tokens="ketchup mustard">Select Account from table or search</option>
                                                                     <option data-tokens="mustard">Burger, Shake and a Smile</option>
@@ -467,11 +467,12 @@
 
                                                             </div>
                                                         </div>
+                                                        <div class="col-sm-12 amount-div">
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>From amount</label>
                                                                 <!--                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount">-->
-                                                                <input type="text" class="form-control fromamount" id="from" name="from[]" value="" placeholder="From amount" onclick="enable();">
+                                                                <input type="text" class="form-control fromamount" id="from" name="from[]" value="" placeholder="From amount">
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-6">
@@ -480,9 +481,10 @@
                                                                 <div class="form-group">
                                                                     <!--                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount">-->
                                                                    <!-- <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">-->
-                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">
+                                                                    <input type="text" class="form-control toamount" id="toamount" name="toamount[]" value="" placeholder="To amount">
                                                                 </div>
                                                             </div>
+                                                        </div>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <p><b>Adjust remaining balance</b></p>
@@ -626,7 +628,7 @@
 <?php
 $temp = array();
 $row = 1;
-if (($handle = fopen("my-cost-centers-2016 (1).csv", "r")) !== FALSE) {
+if (($handle = fopen("my-cost.csv", "r")) !== FALSE) {
     $data = fgetcsv($handle, 1000, ",");
     $i = 0;
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
@@ -643,73 +645,63 @@ foreach ($newtemp as $newtemp_val){
 }
 ?>
 <script>
-    //var temp[] = '<?php echo $temp; ?>';
     var temp = <?php echo json_encode($temp); ?>;
-    $( function() {
-        var availableTags = temp;
-        $(document).on('keypress', '#fromaccount', function () {
-            $(this).autocomplete({
-                source: availableTags
-            });
+    var availableTags = temp;
+    $("body").delegate(".fromaccount", "keypress", function(){
+        console.log($(this).attr('class'));
+        $(this).autocomplete({
+            source: availableTags
         });
-        $( "#fromaccount" ).on( "autocompleteopen", function( event, ui ) {
-        } );
-    } );
+    });
     <!-- Auto suggestion Code Ends Here -->
+
     var room = 1;
     function education_fields() {
 
         room++;
         var objTo = document.getElementById('education_fields')
         var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass"+room);
-        var rdiv = 'removeclass'+room;
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
         divtest.innerHTML = '<div class="col-sm-12">' +
             '<div class="form-group">' +
-            '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields('+ room +');"> </span></label> ' +
-            '<input type="text" class="form-control" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
+            '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields(' + room + ');"> </span></label> ' +
+            '<input type="text" class="form-control fromaccount" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
             '</div></div>' +
+            '<div class="col-sm-12 amount-div">' +
             '<div class="col-sm-6 ">' +
             '<div class="form-group">' +
             '<label>From</label> ' +
-            '<input type="text" class="form-control" id="from1" name="from[]" value="" placeholder="From amount" onclick="enable1();"></div></div>' +
+            '<input type="text" class="form-control fromamount" id="from1" name="from[]" value="" placeholder="From amount"></div></div>' +
             '<div class="col-sm-6 ">' +
             '<div class="form-group">' +
             ' <label>To</label>' +
-            '<input type="text" class="form-control" id="toamount1" name="toamount[]" value="" placeholder="To amount" onclick="enableto1();">' +
-            '</div></div>' +
+            '<input type="text" class="form-control toamount" id="toamount1" name="toamount[]" value="" placeholder="To amount">' +
+            '</div></div></div>' +
             '<div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div>' +
             '<div class="devider"></div></div><div class="clear"></div>';
 
         objTo.appendChild(divtest)
     }
     function remove_education_fields(rid) {
-        $('.removeclass'+rid).remove();
+        $('.removeclass' + rid).remove();
     }
 
-    function enable() {
-         document.getElementById( 'from' ).removeAttribute('readonly');
-         document.getElementById( 'toamount' ).setAttribute('readonly',true);
-    }
-     function enableto() {
-        document.getElementById( 'toamount' ).removeAttribute('readonly');
-        document.getElementById( 'from' ).setAttribute('readonly',true);
-    }
-    function enable1() {
-        document.getElementById( 'from1').removeAttribute('readonly');
-        document.getElementById( 'toamount1').setAttribute('readonly',true);
-    }
-
-    function enableto1() {
-        document.getElementById( 'toamount1').removeAttribute('readonly');
-        document.getElementById( 'from1' ).setAttribute('readonly',true);
-    }
+    //---- Text-Box Enable And Disable Code Starts Here ----
+    $("body").delegate(".fromamount", "click", function(){
+        $(this).closest('.amount-div').find('.toamount').attr('readonly', true);
+        $(this).attr('readonly', false);
+    });
+    $("body").delegate(".toamount", "click", function(){
+        $(this).closest('.amount-div').find('.fromamount').attr('readonly', true);
+        $(this).attr('readonly', false);
+    });
 
 
     $(document).ready(function(){
         $(".fromamount").blur(function(){
             var from_val = $(".fromamount").val();
-            var fromaccount = $("#fromaccount").val();
+            var fromaccount = $(".fromaccount").val();
             var alldata = <?php echo json_encode($detail_array) ?>;
             for (i in alldata) {
                 if(i == fromaccount) {
@@ -721,9 +713,9 @@ foreach ($newtemp as $newtemp_val){
             }
 
         });
-        $("#toamount").blur(function(){
-            var from_val = $(".fromamount").val();
-            var fromaccount = $("#fromaccount").val();
+        $(".toamount").blur(function(){
+            var from_val = $(".toamount").val();
+            var fromaccount = $(".fromaccount").val();
             var alldata = <?php echo json_encode($detail_array) ?>;
             for (i in alldata) {
                 if(i == fromaccount) {
@@ -737,7 +729,7 @@ foreach ($newtemp as $newtemp_val){
         });
         $("#second_next").click(function(){
             var from_val1 = "$"+$(".fromamount").val();
-            var fromaccount1 = $("#fromaccount").val();
+            var fromaccount1 = $(".fromaccount").val();
             $(".first_account").html(fromaccount1);
             $(".first_amount").html(from_val1);
             $(".total_bal").html(finalval);
