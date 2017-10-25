@@ -884,3 +884,4 @@ td .loss {
 	width: 65%;
 }
 }
+.ui-front {	z-index: 99999 !important;}

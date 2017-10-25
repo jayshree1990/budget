@@ -16,9 +16,11 @@
     <!--Link Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,800,800i" rel="stylesheet">
     <!--Link Bootstrap JS-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'>
     </script>
@@ -629,7 +631,7 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group first">
                                                                 <label>Account</label>
-                                                                <input type="text" class="form-control" id="account_field" name="account_field" value="" placeholder="Enter Account from table or search">
+                                                                <input type="text" class="form-control" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
                                                                <!-- <select class="selectpicker" data-live-search="true">
                                                                     <option data-tokens="ketchup mustard">Select Account from table or search</option>
                                                                     <option data-tokens="mustard">Burger, Shake and a Smile</option>
@@ -789,7 +791,33 @@
 
 <!--Footer-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<!-- Auto suggestion Code Starts Here -->
+<?php
+$temp = array();
+$row = 1;
+if (($handle = fopen("my-cost-centers-2016 (1).csv", "r")) !== FALSE) {
+    $data = fgetcsv($handle, 1000, ",");
+    $i = 0;
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $temp[$i++] = $data[1];
+    }
+}
+fclose($handle);
+?>
 <script>
+    //var temp[] = '<?php echo $temp; ?>';
+    var temp = <?php echo json_encode($temp); ?>;
+    $( function() {
+        var availableTags = temp;
+        $(document).on('keypress', '#fromaccount', function () {
+            $(this).autocomplete({
+                source: availableTags
+            });
+        });
+        $( "#fromaccount" ).on( "autocompleteopen", function( event, ui ) {
+        } );
+    } );
+    <!-- Auto suggestion Code Ends Here -->
     var room = 1;
     function education_fields() {
 
