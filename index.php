@@ -274,7 +274,6 @@
                                         <td>Cost center</td>
                                         <td>Budget Revenue</td>
                                         <td>Actual Revenue</td>
-                                        <td>Budgeted Expenses</td>
                                         <td>Actual and Encumbrances</td>
                                         <td>Remaining Expenses</td>
                                         <td>% Spent</td>
@@ -282,181 +281,218 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">
-                                        <td data-toggle="collapse" data-target=" #collapsein-one"><b>Assets</b></td>
-                                        <td></td>
-                                        <td><b>$895,000.00</b></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
 
-                                    </tr>
-                                    <tr id="collapsein-one" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>1010-Cash on Hand</td>
-                                        <td></td>
-                                        <td>$25,000.00</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="collapsein-one" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>10300-Account Receivable<br/>Student</td>
-                                        <td></td>
-                                        <td>$870,000.00<br />0</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">
-                                        <td data-toggle="collapse" data-target=" #liabilities"><b>Liabilities</b></td>
-                                        <td></td>
-                                        <td><b>$10,000.00</b></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="liabilities" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>20001-Account Payable<br/>Vendors</td>
-                                        <td></td>
-                                        <td>$10,000.00<br />0</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
+                                    <?php
+                                    $row = 1;
+                                    if (($handle = fopen("my-objects.csv", "r")) !== FALSE) {
+                                        $data_objectview = fgetcsv($handle, 1000, ",");
+                                        while (($data_objectview = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                                            ?>
+                                            <tr>
+                                                <td scope="row"><?php echo $data[0]; ?><br/><span><?php echo $data_objectview[1]; ?></span>
+                                                </td>
+                                                <td><?php echo $data_objectview[2]; ?></td>
+                                                <td><?php echo $data_objectview[3]; ?></td>
+                                                <td><?php echo $data_objectview[4]; ?></td>
+                                                <td><?php echo $data_objectview[5]; ?></td>
+                                                <td><?php echo $data_objectview[6];?></td>
+                                                <td>
+                                                    <?php
 
-                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">
-                                        <td data-toggle="collapse" data-target=" #fund"><b>Fund Balances</b></td>
-                                        <td></td>
-                                        <td><b>$520,000.00</b></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="fund" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>30000 Fund Balance: General</td>
-                                        <td></td>
-                                        <td>$520,000.00</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">
-                                        <td data-toggle="collapse" data-target=" #revenue"><b>Revenue</b></td>
-                                        <td><b>$132,050.00</b></td>
-                                        <td><b>$132,269.00</b></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><span class="green"><b>-$219.00</b></span></td>
-                                        <td><span class="green"><b>100%</b></span></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>40786 - State Revenue</td>
-                                        <td>$66,025.00</td>
-                                        <td>$65,000.00</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>$1,025.00<br/> 0</td>
-                                        <td>98%</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>41555 - Tution & Fees</td>
-                                        <td>$16,000.00</td>
-                                        <td>$15,900.00</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>$100.00</td>
-                                        <td>99%</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>49000 - Misc</td>
-                                        <td>$50,025.00</td>
-                                        <td>$51,369.00</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td><span class="green">$1,344.00</span></td>
-                                        <td><span class="green">103%</span></td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">
-                                        <td data-toggle="collapse" data-target=" #exp"><b>Expences</b></td>
-                                        <td>$48,000.00</td>
-                                        <td>$32,333.00</td>
-                                        <td></td>
-                                        <td></td>
-                                        <td>$11,666.00</td>
-                                        <td>24%</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="exp" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>55320 - Lab Supplies</td>
-                                        <td>$24,000.00</td>
-                                        <td>$13,716.90</td>
-                                        <td></td>
-                                        <td>$4,000.00</td>
-                                        <td>$6,283.1</td>
-                                        <td>26%</td>
-                                        <td></td>
-                                    </tr>
-                                    <tr id="exp" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>55065 - Lab Supplies</td>
-                                        <td>$24,000.00</td>
-                                        <td>$13,716.90</td>
-                                        <td></td>
-                                        <td>$4,000.00</td>
-                                        <td>$6,283.1</td>
-                                        <td>22%</td>
-                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row">
-									<span class="plus glyphicon glyphicon-plus-sign" data-toggle="collapse" data-target=" #collapsetwo">
-									</span>11-01-01-00-10506-55085<br/><span>Biology: Travel</span>
-                                        </td>
-                                        <td>$12,000.00</td>
-                                        <td>$9,453.45</td>
-                                        <td></td>
-                                        <td>$3,546.55</td>
-                                        <td>$3,546.55</td>
-                                        <td>27%</td>
-                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10518-55085<br/><span>Biology: Travel</span></td>
-                                        <td>$5,000.00</td>
-                                        <td>$5,100.00</td>
-                                        <td></td>
-                                        <td><span class="loss">-$100.00</span></td>
-                                        <td><span class="loss">-$100.00</span></td>
-                                        <td><span class="loss">-2%</span></td>
-                                        <td><span class="glyphicon glyphicon-exclamation-sign excl"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology Travel</span></td>
-                                        <td>$12,000.00</td>
-                                        <td>$9,453.45</td>
-                                        <td></td>
-                                        <td>$3,546.55</td>
-                                        <td>-$100.00</td>
-                                        <td>27%</td>
-                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
-                                    </tr>
+                                                    if($data_objectview[6] < 0){ ?>
+                                                        <span class="glyphicon glyphicon-exclamation-sign excl"></span>
+                                                    <?php}
+                                                    else{ ?>
+                                                        <span></span>
+                                                    <?php }
+                                                    if($data_objectview[6] > 0){ ?>
+                                                        <span class="glyphicon glyphicon-ok-sign profit"></span>
+                                                    <?php}
+                                                    else{ ?>
+                                                        <span></span>
+                                                    <?php }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+<!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td data-toggle="collapse" data-target=" #collapsein-one"><b>Assets</b></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td><b>$895,000.00</b></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!---->
+<!--                                    </tr>-->
+<!--                                    <tr id="collapsein-one" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>1010-Cash on Hand</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$25,000.00</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="collapsein-one" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>10300-Account Receivable<br/>Student</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$870,000.00<br />0</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td data-toggle="collapse" data-target=" #liabilities"><b>Liabilities</b></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td><b>$10,000.00</b></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="liabilities" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>20001-Account Payable<br/>Vendors</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$10,000.00<br />0</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!---->
+<!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td data-toggle="collapse" data-target=" #fund"><b>Fund Balances</b></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td><b>$520,000.00</b></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="fund" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>30000 Fund Balance: General</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$520,000.00</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td data-toggle="collapse" data-target=" #revenue"><b>Revenue</b></td>-->
+<!--                                        <td><b>$132,050.00</b></td>-->
+<!--                                        <td><b>$132,269.00</b></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td><span class="green"><b>-$219.00</b></span></td>-->
+<!--                                        <td><span class="green"><b>100%</b></span></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>40786 - State Revenue</td>-->
+<!--                                        <td>$66,025.00</td>-->
+<!--                                        <td>$65,000.00</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$1,025.00<br/> 0</td>-->
+<!--                                        <td>98%</td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>41555 - Tution & Fees</td>-->
+<!--                                        <td>$16,000.00</td>-->
+<!--                                        <td>$15,900.00</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$100.00</td>-->
+<!--                                        <td>99%</td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>49000 - Misc</td>-->
+<!--                                        <td>$50,025.00</td>-->
+<!--                                        <td>$51,369.00</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td><span class="green">$1,344.00</span></td>-->
+<!--                                        <td><span class="green">103%</span></td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td data-toggle="collapse" data-target=" #exp"><b>Expences</b></td>-->
+<!--                                        <td>$48,000.00</td>-->
+<!--                                        <td>$32,333.00</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$11,666.00</td>-->
+<!--                                        <td>24%</td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="exp" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>55320 - Lab Supplies</td>-->
+<!--                                        <td>$24,000.00</td>-->
+<!--                                        <td>$13,716.90</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$4,000.00</td>-->
+<!--                                        <td>$6,283.1</td>-->
+<!--                                        <td>26%</td>-->
+<!--                                        <td></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr id="exp" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
+<!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>55065 - Lab Supplies</td>-->
+<!--                                        <td>$24,000.00</td>-->
+<!--                                        <td>$13,716.90</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$4,000.00</td>-->
+<!--                                        <td>$6,283.1</td>-->
+<!--                                        <td>22%</td>-->
+<!--                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td scope="row">-->
+<!--									<span class="plus glyphicon glyphicon-plus-sign" data-toggle="collapse" data-target=" #collapsetwo">-->
+<!--									</span>11-01-01-00-10506-55085<br/><span>Biology: Travel</span>-->
+<!--                                        </td>-->
+<!--                                        <td>$12,000.00</td>-->
+<!--                                        <td>$9,453.45</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$3,546.55</td>-->
+<!--                                        <td>$3,546.55</td>-->
+<!--                                        <td>27%</td>-->
+<!--                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10518-55085<br/><span>Biology: Travel</span></td>-->
+<!--                                        <td>$5,000.00</td>-->
+<!--                                        <td>$5,100.00</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td><span class="loss">-$100.00</span></td>-->
+<!--                                        <td><span class="loss">-$100.00</span></td>-->
+<!--                                        <td><span class="loss">-2%</span></td>-->
+<!--                                        <td><span class="glyphicon glyphicon-exclamation-sign excl"></span></td>-->
+<!--                                    </tr>-->
+<!--                                    <tr>-->
+<!--                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology Travel</span></td>-->
+<!--                                        <td>$12,000.00</td>-->
+<!--                                        <td>$9,453.45</td>-->
+<!--                                        <td></td>-->
+<!--                                        <td>$3,546.55</td>-->
+<!--                                        <td>-$100.00</td>-->
+<!--                                        <td>27%</td>-->
+<!--                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>-->
+<!--                                    </tr>-->
                                     </tbody>
                                 </table>
 
