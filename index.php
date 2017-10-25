@@ -225,7 +225,7 @@
                                         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                                             ?>
                                             <tr>
-                                                <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span><?php echo $data[0]; ?><br/><span><?php echo $data[1]; ?></span>
+                                                <td scope="row"><span></span><?php echo $data[0]; ?><br/><span><?php echo $data[1]; ?></span>
                                                 </td>
                                                 <td><?php echo $data[2] ?></td>
                                                 <td><?php echo $data[3] ?></td>
@@ -766,27 +766,28 @@
 <script>
     $(".menu-toggle").click(function(e) {
         e.preventDefault();
+        $(".table").width("100%").removeClass('marginLEFT');
+        $("#wrapper-filter").removeClass("toggled");
         $("#wrapper").toggleClass("toggled");
         if($('#wrapper').hasClass("toggled")==true){
-            $(".table").width("71%");
+            $(".table").width("66%");
             $(".right-sidebar").width("100%");
         }else {
             $(".table").width("100%");
         }
     });
-   $("#filter-button").click(function(e) {
+
+    $("#filter-button").click(function(e) {
         e.preventDefault();
-       $("#wrapper-filter").toggleClass("toggled");
-       if($('#wrapper-filter').hasClass("toggled")==true){
-           $(".table").width("71%").addClass('marginLEFT');
-           $(".left-sidebar").width("100%");
-       }else {
-           $(".table").width("100%").removeClass('marginLEFT');
-       }
+        $("#wrapper").removeClass('toggled');
+        $("#wrapper-filter").toggleClass("toggled");
+        if($('#wrapper-filter').hasClass("toggled")==true){
+            $(".table").width("66%").addClass('marginLEFT');
+            $(".left-sidebar").width("100%");
+        }else {
+            $(".table").width("100%").removeClass('marginLEFT');
+        }
     });
-
-
-
 </script>
 
 <!--Footer-->
@@ -826,7 +827,22 @@ fclose($handle);
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass"+room);
         var rdiv = 'removeclass'+room;
-        divtest.innerHTML = '<div class="col-sm-12"><div class="form-group"><label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields('+ room +');"> </span></label> <input type="text" class="form-control" id="account" name="account[]" value="" placeholder="Select Account from table or searcht"></div></div><div class="col-sm-6 "><div class="form-group"><label>From</label> <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount"></div></div><div class="col-sm-6 "><div class="form-group"> <label>To</label><input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount"></div></div><div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div><div class="devider"></div></div><div class="clear"></div>';
+        divtest.innerHTML = '<div class="col-sm-12">' +
+            '<div class="form-group">' +
+            '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields('+ room +');"> </span></label> ' +
+            '<input type="text" class="form-control" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
+            '</div></div>' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            '<label>From</label> ' +
+            '<input type="text" class="form-control" id="from1" name="from[]" value="" placeholder="From amount" onclick="enable1();"></div></div>' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            ' <label>To</label>' +
+            '<input type="text" class="form-control" id="toamount1" name="toamount[]" value="" placeholder="To amount" onclick="enableto1();">' +
+            '</div></div>' +
+            '<div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div>' +
+            '<div class="devider"></div></div><div class="clear"></div>';
 
         objTo.appendChild(divtest)
     }
@@ -834,12 +850,24 @@ fclose($handle);
         $('.removeclass'+rid).remove();
     }
 
-    function enable() {        //$('#toamount').setAttribute('readonly',false);
-     document.getElementById( 'from' ).removeAttribute('readonly');
-     document.getElementById( 'toamount' ).setAttribute('readonly',true);    }
-     function enableto() {        //$('#from').setAttribute('readonly',false);
-    document.getElementById( 'toamount' ).removeAttribute('readonly');
-    document.getElementById( 'from' ).setAttribute('readonly',true);    }
+    function enable() {
+         document.getElementById( 'from' ).removeAttribute('readonly');
+         document.getElementById( 'toamount' ).setAttribute('readonly',true);
+    }
+     function enableto() {
+        document.getElementById( 'toamount' ).removeAttribute('readonly');
+        document.getElementById( 'from' ).setAttribute('readonly',true);
+    }
+    function enable1() {
+        document.getElementById( 'from1').removeAttribute('readonly');
+        document.getElementById( 'toamount1').setAttribute('readonly',true);
+    }
+
+    function enableto1() {
+        document.getElementById( 'toamount1').removeAttribute('readonly');
+        document.getElementById( 'from1' ).setAttribute('readonly',true);
+    }
+
 </script>
 </body>
 </html>
