@@ -172,7 +172,7 @@ a{ text-decoration:none !important;}
 	float: right;
 }
 .pading-top {
-	padding-top: 50px;
+	/*padding-top: 50px;*/
 	padding-right: 22px;
 }
 .before_table {
@@ -419,6 +419,7 @@ ul.initiate {
 	color: #24433f;
 	padding-left: 25px;
 	padding-right: 25px;
+	margin: 19px 0px 0px 78px
 }
 .glyphicon.glyphicon-ok-sign.profit {
 	color: #008241;
@@ -604,7 +605,7 @@ td .loss {
 
 /* Toggle Styles */
 
-#wrapper,#wrapper-filter {
+#wrapper,#wrapper-filter ,#wrapper-filter1{
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
@@ -627,7 +628,7 @@ td .loss {
 	z-index: 999;
 	top: 118px;
 }
-#sidebar-wrapper-filter{
+#sidebar-wrapper-filter,#sidebar-wrapper-filter1{
 	z-index: 1000;
 	position: absolute;
 	left:5px;
@@ -644,7 +645,7 @@ td .loss {
 
 }
 
-#wrapper-sidebar{
+#wrapper-sidebar,#wrapper-sidebar-filter1{
 	z-index: 1000;
 	position: absolute;
 	right: 6px;
@@ -660,6 +661,7 @@ td .loss {
 	top: 118px;
 
 }
+
 #page-content-wrapper {
     width: 100%;
     position: absolute;
@@ -882,5 +884,31 @@ td .loss {
 }
 .before_table.col-md-9 {
 	width: 65%;
+	margin-left: 44px;
 }
 }
+
+.before_table.col-md-9 {
+	width: 50%;
+	margin-left: 4%;
+}
+
+
+
+
+.col-md-4.te {
+	position: absolute;
+	right: 39px;
+	top: 220px;
+}
+.btn.btn-default.share{
+	margin-left:50px;
+}
+.btn.btn-default.current-date{
+	margin-top:16px;
+}
+#wrapper-filter.toggled #sidebar-wrapper-filter{
+	margin:16px 0 0 10px;
+}
+
+

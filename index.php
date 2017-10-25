@@ -136,6 +136,256 @@
                 </div>
 
             </header>
+            <div class="before_table col-md-9">
+                <div class="filter">
+                    <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
+                    <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                </div>
+                <div id="wrapper-filter">
+
+                    <!-- Sidebar -->
+                    <div id="sidebar-wrapper-filter">
+                        <table class="table table-bordered left-sidebar">
+                            <tr>
+                                <div class="Rectangle-3">
+                                    <h4 style="margin:20px;text-align:"center">Saved Selection Criterias</h4>
+
+
+                                    <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">select criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
+
+                                    <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
+
+                                </div>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" style="margin-left:1%"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " style="margin-left:1%"></span></a>
+                            </tr>
+                            <tr>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;width:80%;" role="button" >Apply Filters</a>
+                            </tr>
+                            <tr>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important"role="button" >Apply Filters</a>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important" role="button" >Apply Filters</a>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 te">
+                <div class="budget-adjustment col-md-9">
+                    <a href="#" class="btn btn-default share" role="button"><span class=" glyphicon glyphicon-share"></span></a>
+                    <a href="#menu-toggle" class="btn btn-info btn-lg adjustment menu-toggle" role="button">Budget Adjustment</a>
+                </div>
+                <div id="wrapper">
+
+                    <!-- Sidebar -->
+                    <div id="sidebar-wrapper">
+                        <table class="table table-bordered right-sidebar">
+                            <tr>
+                                <td>
+                                    <div class="sidebar-top">
+                                        <li>
+                                            <span class="glyphicon glyphicon-remove cancle cancle"></span>
+                                            <p>Cancel</p>
+                                        </li>
+                                        <li>
+                                            <span class="fa fa-floppy-o file draft" aria-hidden="true"></span>
+                                            <p>Save Draft</p>
+                                        </li>
+                                        <li>
+                                            <span class="glyphicon glyphicon-pencil draft"></span>
+                                            <p>Select Draft</p>
+                                        </li>
+                                    </div>
+                                    <ul class="nav nav-tabs initiate">
+                                        <li class="active"><a data-toggle="tab" href="#home"><span>1</span>Initiate</a></li>
+                                        <li><a data-toggle="tab" href="#menu1"><span>2</span>Adjustments</a></li>
+                                        <li><a data-toggle="tab" href="#menu2"><span>3</span>Summary</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div id="home" class="tab-pane fade in active">
+                                            <div class="tab1-content">
+                                                <h4> Transaction Details</h4>
+                                                <p>Enter the transaction details to initiate<br/> a budget adjustments</p>
+                                                <form role="form" class="transaction-form">
+                                                    <div class="form-group">
+                                                        <label>Transaction Date *</label>
+                                                        <div class="input-group date" id="datetimepicker">
+                                                            <input class="form-control" placeholder="dd/mm/yyyy" value="" type="text">
+                                                            <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span></div></div>
+                                                    <div class="form-group">
+                                                        <label>Initiator *</label>
+                                                        <input class="form-control" placeholder="Responsible Person" type="text">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Reason </label>
+                                                        <input class="form-control" placeholder="Reason For Adjustment" type="text">
+                                                    </div>
+                                                    <div class="form-group submit-next">
+                                                        <label>All Changes Saved </label>
+                                                        <a data-toggle="tab" href="#menu1" class="btn btn-info btn-lg next">Next</a>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div id="menu1" class="tab-pane fade">
+                                            <div class="tab1-content nopadding">
+
+                                                <div id="education_fields"> </div>
+                                                <form role="form" class="transaction-form">
+                                                    <div class="col-sm-12">
+                                                        <div class="form-group first">
+                                                            <label>Account</label>
+                                                            <input type="text" class="form-control" id="account_field" name="account_field" value="" placeholder="Enter Account from table or search">
+                                                            <!-- <select class="selectpicker" data-live-search="true">
+                                                                 <option data-tokens="ketchup mustard">Select Account from table or search</option>
+                                                                 <option data-tokens="mustard">Burger, Shake and a Smile</option>
+                                                                 <option data-tokens="frosting">Sugar, Spice and all things nice</option>
+                                                             </select>-->
+
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>From amount</label>
+                                                            <!--                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount">-->
+                                                            <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount" onclick="enable();">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <div class="form-group">
+                                                            <label>To</label>
+                                                            <div class="form-group">
+                                                                <!--                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount">-->
+                                                                <!-- <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">-->
+                                                                <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <p><b>Adjust remaining balance</b></p>
+                                                        <p>$1,300.00</p>
+                                                        <p>0</p>
+                                                    </div>
+                                                    <div class="devider"></div>
+                                                    <div class="col-md-12">
+                                                        <div class="add-acount">
+                                                            <span class="glyphicon glyphicon-plus-sign" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="divide3"></div>
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-6"><b><p>Total From</p></b></div>
+                                                        <div class="col-md-6"><p>$5,000.00</p></div>
+                                                        <div class="col-md-6"><b>Total To</b></div>
+                                                        <div class="col-md-6"><p>$5,000.00</p></div>
+                                                        <div class="col-md-12 align-items-center">
+                                                            <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 saved"><p>All changes saved</p></div>
+                                                    <div class="col-md-12"><a data-toggle="tab" href="#home" class="btn btn-default previous">Previous</a></div>
+                                                    <div class="col-md-12"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next">Next</a></div>
+
+                                                </form>
+
+                                                <div class="clear"></div>
+
+                                            </div>
+                                        </div>
+                                        <div id="menu2" class="tab-pane fade">
+                                            <div class="tab1-content">
+                                                <p><b>Budget Journal Number</b> B003453</p>
+                                                <div class="from-box border-1 col-md-12">
+                                                    <p><b>From</b></p>
+                                                    <div class="from-cost-center">
+                                                        <p>11-01-01-00-10506-55085</p>
+                                                        <p>Art Supplies<b>$250.00</b></p>
+                                                    </div>
+                                                    <div class="from-cost-center">
+                                                        <p>11-01-01-00-10506-55085</p>
+                                                        <p>Artist Retreat<b>$250.00</b></p>
+                                                    </div>
+                                                    <div class="divider2"></div>
+                                                    <p><span class="text-left"><b>Total</b></span><span class="text-right"><b>$500.00</b></span></p>
+                                                </div>
+                                                <div class="from-box border-1 col-md-12">
+                                                    <p><b>To</b></p>
+                                                    <div class="from-cost-center">
+                                                        <p>11-01-01-00-10506-55085</p>
+                                                        <p>Art Supplies<b>$250.00</b></p>
+                                                    </div>
+                                                    <div class="divider2"></div>
+                                                    <p><span class="text-left"><b>Total</b></span><span class="text-right"><b>$250.00</b></span></p>
+                                                </div>
+                                                <div class="col-md-12 align-items-center margin-top-20">
+                                                    <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
+                                                </div>
+                                                <div class="trans-date col-md-12 nopadding">
+                                                    <div class="transaction-date">
+                                                        <div class="col-md-6 nopadding"><b>Transaction Date</b><br />7/26/17</div>
+                                                        <div class="col-md-6 nopadding"><b>Initiator</b><br />Jane Seymore</div>
+                                                    </div>
+                                                    <div class="transaction-date">
+                                                        <div class="col-md-12 nopadding"><b>Reason</b><br />Art Trip Adjustment</div>
+                                                    </div>
+                                                </div>
+                                                <div class="attachment col-md-12 nopadding">
+                                                    <p><b>Attachment</b></p>
+                                                    <span id="fileselector">
+													<label class="btn btn-default previous" for="upload-file-selector">
+														<input id="upload-file-selector" type="file">
+														<i class="fa_icon icon-upload-alt margin-correction"></i>Upload Document
+													</label>
+   												</span>
+                                                </div>
+                                                <div class="col-sm-12 nopadding margin-top-20">
+                                                    <div class="form-group first">
+                                                        <label>Comments</label>
+                                                        <input class="form-control comment" id="account" name="account[]" value="" placeholder="Add Comments" type="text">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 nopadding margin-top-20"><p>All Changes Saved</p></div>
+                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu1" class="btn btn-default previous">Previous</a></div>
+                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next">Next</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
         </div>
         <!--Header End-->
         <!--Content Area Start-->
@@ -146,14 +396,14 @@
                         <!--My Cost Center Table Start-->
                         <div class="tab-pane fade in active" id="cost">
                             <div class="col-md-12 table-responsive pading-top">
-                                <div class="before_table col-md-9">
+                               <!-- <div class="before_table col-md-9">
                                     <div class="filter">
                                         <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
                                         <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
                                     </div>
                                     <div id="wrapper-filter">
 
-                                        <!-- Sidebar -->
+
                                         <div id="sidebar-wrapper-filter">
                                             <table class="table table-bordered left-sidebar">
                                                 <tr>
@@ -201,8 +451,8 @@
                                             </table>
                                         </div>
                                     </div>
-                                </div>
-                                <table class="table">
+                                </div>-->
+                                <table class="table" >
                                     <thead>
                                     <tr>
                                         <td>Cost center</td>
@@ -262,12 +512,63 @@
                         <!--Object View Table Start-->
                         <div id="object" class="tab-pane fade">
                             <div class="col-md-12 table-responsive pading-top">
-                                <div class="before_table col-md-9">
-                                    <div class="filter">
-                                        <a href="#" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
-                                        <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                    </div>
-                                </div>
+                                <div class="col-md-12 table-responsive pading-top">
+                                 <!--   <div class="before_table col-md-9">
+                                        <div class="filter">
+                                            <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
+                                            <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                        </div>
+                                        <div id="wrapper-filter">
+
+
+                                            <div id="sidebar-wrapper-filter">
+                                                <table class="table table-bordered left-sidebar">
+                                                    <tr>
+                                                        <div class="Rectangle-3">
+                                                            <h4 style="margin:20px;text-align:"center">Saved Selection Criterias</h4>
+
+
+                                                            <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">select criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
+
+                                                            <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
+
+                                                        </div>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" style="margin-left:1%"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " style="margin-left:1%"></span></a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;width:80%;" role="button" >Apply Filters</a>
+                                                    </tr>
+                                                    <tr>
+                                                        <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important"role="button" >Apply Filters</a>
+                                                        <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important" role="button" >Apply Filters</a>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>--->
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -283,6 +584,8 @@
                                     <tbody>
 
                                     <?php
+                                    $row = 1;
+
                                     $row = 1;
                                     if (($handle = fopen("my-objects.csv", "r")) !== FALSE) {
                                         $data_objectview = fgetcsv($handle, 1000, ",");
@@ -563,198 +866,7 @@
                     </div>
                     <!--Tab-content End-->
                 </div>
-                <div class="col-md-4 te">
-                    <div class="budget-adjustment col-md-9">
-                        <a href="#" class="btn btn-default share" role="button"><span class=" glyphicon glyphicon-share"></span></a>
-                        <a href="#menu-toggle" class="btn btn-info btn-lg adjustment menu-toggle" role="button">Budget Adjustment</a>
-                    </div>
-                    <div id="wrapper">
 
-                        <!-- Sidebar -->
-                        <div id="sidebar-wrapper">
-                            <table class="table table-bordered right-sidebar">
-                                <tr>
-                                    <td>
-                                        <div class="sidebar-top">
-                                            <li>
-                                                <span class="glyphicon glyphicon-remove cancle cancle"></span>
-                                                <p>Cancle</p>
-                                            </li>
-                                            <li>
-                                                <span class="fa fa-floppy-o file draft" aria-hidden="true"></span>
-                                                <p>Save Draft</p>
-                                            </li>
-                                            <li>
-                                                <span class="glyphicon glyphicon-pencil draft"></span>
-                                                <p>Select Draft</p>
-                                            </li>
-                                        </div>
-                                        <ul class="nav nav-tabs initiate">
-                                            <li class="active"><a data-toggle="tab" href="#home"><span>1</span>Initiate</a></li>
-                                            <li><a data-toggle="tab" href="#menu1"><span>2</span>Adjustments</a></li>
-                                            <li><a data-toggle="tab" href="#menu2"><span>3</span>Summary</a></li>
-                                        </ul>
-                                        <div class="tab-content">
-                                            <div id="home" class="tab-pane fade in active">
-                                                <div class="tab1-content">
-                                                    <h4> Transaction Details</h4>
-                                                    <p>Enter the transaction details to initiate<br/> a budget adjustments</p>
-                                                    <form role="form" class="transaction-form">
-                                                        <div class="form-group">
-                                                            <label>Transaction Date *</label>
-                                                            <div class="input-group date" id="datetimepicker">
-                                                                <input class="form-control" placeholder="dd/mm/yyyy" value="" type="text">
-                                                                <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span></div></div>
-                                                        <div class="form-group">
-                                                            <label>Initiator *</label>
-                                                            <input class="form-control" placeholder="Responsible Person" type="text">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label>Reason </label>
-                                                            <input class="form-control" placeholder="Reason For Adjustment" type="text">
-                                                        </div>
-                                                        <div class="form-group submit-next">
-                                                            <label>All Changes Saved </label>
-                                                            <a data-toggle="tab" href="#menu1" class="btn btn-info btn-lg next">Next</a>
-                                                        </div>
-
-                                                    </form>
-                                                </div>
-                                            </div>
-                                            <div id="menu1" class="tab-pane fade">
-                                                <div class="tab1-content nopadding">
-
-                                                    <div id="education_fields"> </div>
-                                                    <form role="form" class="transaction-form">
-                                                        <div class="col-sm-12">
-                                                            <div class="form-group first">
-                                                                <label>Account</label>
-                                                                <input type="text" class="form-control" id="account_field" name="account_field" value="" placeholder="Enter Account from table or search">
-                                                               <!-- <select class="selectpicker" data-live-search="true">
-                                                                    <option data-tokens="ketchup mustard">Select Account from table or search</option>
-                                                                    <option data-tokens="mustard">Burger, Shake and a Smile</option>
-                                                                    <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-                                                                </select>-->
-
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label>From amount</label>
-                                                                <!--                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount">-->
-                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount" onclick="enable();">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label>To</label>
-                                                                <div class="form-group">
-                                                                    <!--                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount">-->
-                                                                   <!-- <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">-->
-                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12">
-                                                            <p><b>Adjust remaining balance</b></p>
-                                                            <p>$1,300.00</p>
-                                                            <p>0</p>
-                                                        </div>
-                                                        <div class="devider"></div>
-                                                        <div class="col-md-12">
-                                                            <div class="add-acount">
-                                                                <span class="glyphicon glyphicon-plus-sign" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="divide3"></div>
-                                                        <div class="col-md-12">
-                                                            <div class="col-md-6"><b><p>Total From</p></b></div>
-                                                            <div class="col-md-6"><p>$5,000.00</p></div>
-                                                            <div class="col-md-6"><b>Total To</b></div>
-                                                            <div class="col-md-6"><p>$5,000.00</p></div>
-                                                            <div class="col-md-12 align-items-center">
-                                                                <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-12 saved"><p>All changes saved</p></div>
-                                                        <div class="col-md-12"><a data-toggle="tab" href="#home" class="btn btn-default previous">Previous</a></div>
-                                                        <div class="col-md-12"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next">Next</a></div>
-
-                                                    </form>
-
-                                                    <div class="clear"></div>
-
-                                                </div>
-                                            </div>
-                                            <div id="menu2" class="tab-pane fade">
-                                                <div class="tab1-content">
-                                                    <p><b>Budget Journal Number</b> B003453</p>
-                                                    <div class="from-box border-1 col-md-12">
-                                                        <p><b>From</b></p>
-                                                        <div class="from-cost-center">
-                                                            <p>11-01-01-00-10506-55085</p>
-                                                            <p>Art Supplies<b>$250.00</b></p>
-                                                        </div>
-                                                        <div class="from-cost-center">
-                                                            <p>11-01-01-00-10506-55085</p>
-                                                            <p>Artist Retreat<b>$250.00</b></p>
-                                                        </div>
-                                                        <div class="divider2"></div>
-                                                        <p><span class="text-left"><b>Total</b></span><span class="text-right"><b>$500.00</b></span></p>
-                                                    </div>
-                                                    <div class="from-box border-1 col-md-12">
-                                                        <p><b>To</b></p>
-                                                        <div class="from-cost-center">
-                                                            <p>11-01-01-00-10506-55085</p>
-                                                            <p>Art Supplies<b>$250.00</b></p>
-                                                        </div>
-                                                        <div class="divider2"></div>
-                                                        <p><span class="text-left"><b>Total</b></span><span class="text-right"><b>$250.00</b></span></p>
-                                                    </div>
-                                                    <div class="col-md-12 align-items-center margin-top-20">
-                                                        <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
-                                                    </div>
-                                                    <div class="trans-date col-md-12 nopadding">
-                                                        <div class="transaction-date">
-                                                            <div class="col-md-6 nopadding"><b>Transaction Date</b><br />7/26/17</div>
-                                                            <div class="col-md-6 nopadding"><b>Initiator</b><br />Jane Seymore</div>
-                                                        </div>
-                                                        <div class="transaction-date">
-                                                            <div class="col-md-12 nopadding"><b>Reason</b><br />Art Trip Adjustment</div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="attachment col-md-12 nopadding">
-                                                        <p><b>Attachment</b></p>
-                                                        <span id="fileselector">
-													<label class="btn btn-default previous" for="upload-file-selector">
-														<input id="upload-file-selector" type="file">
-														<i class="fa_icon icon-upload-alt margin-correction"></i>Upload Document
-													</label>
-   												</span>
-                                                    </div>
-                                                    <div class="col-sm-12 nopadding margin-top-20">
-                                                        <div class="form-group first">
-                                                            <label>Comments</label>
-                                                            <input class="form-control comment" id="account" name="account[]" value="" placeholder="Add Comments" type="text">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 nopadding margin-top-20"><p>All Changes Saved</p></div>
-                                                    <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu1" class="btn btn-default previous">Previous</a></div>
-                                                    <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next">Next</a></div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</div>
 <!-- Menu Toggle Script -->
 
 <style>
@@ -762,27 +874,46 @@
 
 </style>
 <script>
+
     $(".menu-toggle").click(function(e) {
         e.preventDefault();
+        $(".table").width("100%").removeClass('marginLEFT');
+        $("#wrapper-filter").removeClass("toggled");
         $("#wrapper").toggleClass("toggled");
         if($('#wrapper').hasClass("toggled")==true){
-            $(".table").width("71%");
+            var bsContainerWidth =$( window ).width();
+            if (bsContainerWidth = 1580)
+             $(".table").width("71%");
+            else
+                $(".table").width("66%");
             $(".right-sidebar").width("100%");
         }else {
             $(".table").width("100%");
         }
     });
-   $("#filter-button").click(function(e) {
-        e.preventDefault();
-       $("#wrapper-filter").toggleClass("toggled");
-       if($('#wrapper-filter').hasClass("toggled")==true){
-           $(".table").width("71%").addClass('marginLEFT');
-           $(".left-sidebar").width("100%");
-       }else {
-           $(".table").width("100%").removeClass('marginLEFT');
-       }
-    });
 
+    $("#filter-button").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").removeClass('toggled');
+        $("#wrapper-filter").toggleClass("toggled");
+        if($('#wrapper-filter').hasClass("toggled")==true){
+            $(".table").width("70%").addClass('marginLEFT');
+            $(".left-sidebar").width("100%");
+        }else {
+            $(".table").width("100%").removeClass('marginLEFT');
+        }
+    });
+    $("#filter-button1").click(function(e) {
+        e.preventDefault();
+       // $("#wrapper").removeClass('toggled');
+        $("#wrapper-filter1").toggleClass("toggled");
+        if($('#wrapper-filter1').hasClass("toggled")==true){
+            $(".table").width("70%").addClass('marginLEFT');
+            $(".left-sidebar").width("100%");
+        }else {
+            $(".table").width("100%").removeClass('marginLEFT');
+        }
+    });
 
 
 </script>
