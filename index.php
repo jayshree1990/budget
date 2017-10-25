@@ -16,12 +16,13 @@
     <!--Link Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,800,800i" rel="stylesheet">
     <!--Link Bootstrap JS-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
-    <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'>
-    </script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'></script>
     <script  src="js/index.js"></script>
 </head>
 
@@ -629,7 +630,9 @@
                                                         <div class="col-sm-12">
                                                             <div class="form-group first">
                                                                 <label>Account</label>
-                                                                <input type="text" class="form-control" id="account_field" name="account_field" value="" placeholder="Enter Account from table or search">
+                                                                <input type="text" class="form-control fromaccount" id="fromaccount"
+                                                                       name="fromaccount[]" value=""
+                                                                       placeholder="Select Account from table or search">
                                                                <!-- <select class="selectpicker" data-live-search="true">
                                                                     <option data-tokens="ketchup mustard">Select Account from table or search</option>
                                                                     <option data-tokens="mustard">Burger, Shake and a Smile</option>
@@ -638,20 +641,27 @@
 
                                                             </div>
                                                         </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label>From amount</label>
-                                                                <!--                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount">-->
-                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount" onclick="enable();">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <div class="form-group">
-                                                                <label>To</label>
+                                                        <div class="col-sm-12 amount-div">
+                                                            <div class="col-sm-6">
                                                                 <div class="form-group">
-                                                                    <!--                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount">-->
-                                                                   <!-- <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">-->
-                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">
+                                                                    <label>From amount</label>
+                                                                    <!--                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount">-->
+                                                                    <input type="text" class="form-control fromamount"
+                                                                           id="from" name="from[]" value=""
+                                                                           placeholder="From amount">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label>To</label>
+                                                                    <div class="form-group">
+                                                                        <!--                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount">-->
+                                                                       <!-- <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">-->
+                                                                        <input type="text" class="form-control toamount"
+                                                                               id="toamount" name="toamount[]" value=""
+                                                                               placeholder="To amount">
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -782,36 +792,76 @@
            $(".table").width("100%").removeClass('marginLEFT');
        }
     });
-
-
-
 </script>
 
 <!--Footer-->
 <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<!-- Auto suggestion Code Starts Here -->
+<?php
+$temp = array();
+$row = 1;
+if (($handle = fopen("my-cost-centers-2016 (1).csv", "r")) !== FALSE) {
+    $data = fgetcsv($handle, 1000, ",");
+    $i = 0;
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $temp[$i++] = $data[1];
+    }
+}
+fclose($handle);
+?>
 <script>
+    var temp = <?php echo json_encode($temp); ?>;
+    var availableTags = temp;
+    $("body").delegate(".fromaccount", "keypress", function(){
+        console.log($(this).attr('class'));
+        $(this).autocomplete({
+            source: availableTags
+        });
+    });
+    <!-- Auto suggestion Code Ends Here -->
+
     var room = 1;
     function education_fields() {
 
         room++;
         var objTo = document.getElementById('education_fields')
         var divtest = document.createElement("div");
-        divtest.setAttribute("class", "form-group removeclass"+room);
-        var rdiv = 'removeclass'+room;
-        divtest.innerHTML = '<div class="col-sm-12"><div class="form-group"><label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields('+ room +');"> </span></label> <input type="text" class="form-control" id="account" name="account[]" value="" placeholder="Select Account from table or searcht"></div></div><div class="col-sm-6 "><div class="form-group"><label>From</label> <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount"></div></div><div class="col-sm-6 "><div class="form-group"> <label>To</label><input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount"></div></div><div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div><div class="devider"></div></div><div class="clear"></div>';
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
+        divtest.innerHTML = '<div class="col-sm-12">' +
+            '<div class="form-group">' +
+            '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields(' + room + ');"> </span></label> ' +
+            '<input type="text" class="form-control fromaccount" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
+            '</div></div>' +
+            '<div class="col-sm-12 amount-div">' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            '<label>From</label> ' +
+            '<input type="text" class="form-control fromamount" id="from1" name="from[]" value="" placeholder="From amount"></div></div>' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            ' <label>To</label>' +
+            '<input type="text" class="form-control toamount" id="toamount1" name="toamount[]" value="" placeholder="To amount">' +
+            '</div></div></div>' +
+            '<div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div>' +
+            '<div class="devider"></div></div><div class="clear"></div>';
 
         objTo.appendChild(divtest)
     }
     function remove_education_fields(rid) {
-        $('.removeclass'+rid).remove();
+        $('.removeclass' + rid).remove();
     }
 
-    function enable() {        //$('#toamount').setAttribute('readonly',false);
-     document.getElementById( 'from' ).removeAttribute('readonly');
-     document.getElementById( 'toamount' ).setAttribute('readonly',true);    }
-     function enableto() {        //$('#from').setAttribute('readonly',false);
-    document.getElementById( 'toamount' ).removeAttribute('readonly');
-    document.getElementById( 'from' ).setAttribute('readonly',true);    }
+    //---- Text-Box Enable And Disable Code Starts Here ----
+    $("body").delegate(".fromamount", "click", function(){
+        $(this).closest('.amount-div').find('.toamount').attr('readonly', true);
+        $(this).attr('readonly', false);
+    });
+    $("body").delegate(".toamount", "click", function(){
+        $(this).closest('.amount-div').find('.fromamount').attr('readonly', true);
+        $(this).attr('readonly', false);
+    });
+    //---- Text-Box Enable And Disable Code Ends Here ----
 </script>
 </body>
 </html>
