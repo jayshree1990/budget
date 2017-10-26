@@ -881,19 +881,22 @@ td .loss {
 {
 	.col-md-4.te {
 		max-width: 45%;
+
 	}
 	.before_table.col-md-9 {
 		width: 65%;
 		margin-left: 44px;
 	}
-}
 
+	.budget-adjustment{
+		margin-top:16px;
+	}
+
+}
 .before_table.col-md-9 {
 	width: 50%;
 	margin-left: 4%;
 }
-
-
 
 
 .col-md-4.te {
@@ -916,3 +919,4 @@ td .loss {
 	margin-left: -63px;
 }
 .marginLEFT{margin-left:410px;}
+.ui-front {z-index: 99999 !important;}

@@ -43,4 +43,53 @@
    }
    
    bindDatePicker();
+
+   //--menu toggle script----//
+	 $(".menu-toggle").click(function(e) {
+         e.preventDefault();
+         $(".table").width("100%").removeClass('marginLEFT');
+         $("#wrapper-filter").removeClass("toggled");
+         $("#wrapper").toggleClass("toggled");
+         if($('#wrapper').hasClass("toggled")==true){
+             var bsContainerWidth =$( window ).width();
+             if (bsContainerWidth = 1580)
+                 $(".table").width("71%");
+             else
+                 $(".table").width("66%");
+             $(".right-sidebar").width("100%");
+         }else {
+             $(".table").width("100%");
+         }
+     });
+
+     $("#filter-button").click(function(e) {
+         e.preventDefault();
+         $("#wrapper").removeClass('toggled');
+         $("#wrapper-filter").toggleClass("toggled");
+         if($('#wrapper-filter').hasClass("toggled")==true){
+             $(".table").width("71%").addClass('marginLEFT');
+             $(".left-sidebar").width("100%");
+         }else {
+             $(".table").width("100%").removeClass('marginLEFT');
+         }
+     });
+
+     //---- Text-Box Enable And Disable Code Starts Here ----
+     $("body").delegate(".fromamount", "click", function(){
+         $(this).closest('.amount-div').find('.toamount').attr('readonly', true);
+         $(this).attr('readonly', false);
+     });
+     $("body").delegate(".toamount", "click", function(){
+         $(this).closest('.amount-div').find('.fromamount').attr('readonly', true);
+         $(this).attr('readonly', false);
+     });
+
+     function enable() {        //$('#toamount').setAttribute('readonly',false);
+         document.getElementById( 'from' ).removeAttribute('readonly');
+         document.getElementById( 'toamount' ).setAttribute('readonly',true);    }
+     function enableto() {        //$('#from').setAttribute('readonly',false);
+         document.getElementById( 'toamount' ).removeAttribute('readonly');
+         document.getElementById( 'from' ).setAttribute('readonly',true);    }
+
+
  });

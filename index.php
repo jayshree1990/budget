@@ -16,9 +16,11 @@
     <!--Link Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,800,800i" rel="stylesheet">
     <!--Link Bootstrap JS-->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.min.js'></script>
     <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/3.1.3/js/bootstrap-datetimepicker.min.js'>
     </script>
@@ -148,7 +150,7 @@
                         <table class="table table-bordered left-sidebar">
                             <tr>
                                 <div class="Rectangle-3">
-                                    <h4 style="margin:20px;text-align:"center">Saved Selection Criterias</h4>
+                                    <h4 style="margin:20px;text-align:center">Saved Selection Criterias</h4>
 
 
                                     <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">select criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
@@ -185,8 +187,8 @@
                                 <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;width:80%;" role="button" >Apply Filters</a>
                             </tr>
                             <tr>
-                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important"role="button" >Apply Filters</a>
-                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important" role="button" >Apply Filters</a>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important"role="button" >Reset Filters</a>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important" role="button" >Save Criteria</a>
                             </tr>
                         </table>
                     </div>
@@ -207,7 +209,7 @@
                                     <div class="sidebar-top">
                                         <li>
                                             <span class="glyphicon glyphicon-remove cancle cancle"></span>
-                                            <p>Cancel</p>
+                                            <p>Cancle</p>
                                         </li>
                                         <li>
                                             <span class="fa fa-floppy-o file draft" aria-hidden="true"></span>
@@ -258,55 +260,79 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group first">
                                                             <label>Account</label>
-                                                            <input type="text" class="form-control" id="account_field" name="account_field" value="" placeholder="Enter Account from table or search">
-
+                                                            <input type="text" class="form-control fromaccount" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
 
                                                         </div>
                                                     </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>From amount</label>
-
-                                                            <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount" onclick="enable();">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-sm-6">
-                                                        <div class="form-group">
-                                                            <label>To</label>
+                                                    <div class="col-sm-12 amount-div">
+                                                        <div class="col-sm-6">
                                                             <div class="form-group">
+                                                                <label>From amount</label>
 
-                                                                <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">
+                                                                <input type="text" class="form-control fromamount" id="from" name="from[]" value="" placeholder="From amount">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-6">
+                                                            <div class="form-group">
+                                                                <label>To</label>
+                                                                <div class="form-group">
+
+                                                                    <input type="text" class="form-control toamount" id="toamount" name="toamount[]" value="" placeholder="To amount">
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-12">
-                                                        <p><b>Adjust remaining balance</b></p>
-                                                        <p>$1,300.00</p>
-                                                        <p>0</p>
-                                                    </div>
-                                                    <div class="devider"></div>
-                                                    <div class="col-md-12">
-                                                        <div class="add-acount">
-                                                            <span class="glyphicon glyphicon-plus-sign" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="divide3"></div>
-                                                    <div class="col-md-12">
-                                                        <div class="col-md-6"><b><p>Total From</p></b></div>
-                                                        <div class="col-md-6"><p>$5,000.00</p></div>
-                                                        <div class="col-md-6"><b>Total To</b></div>
-                                                        <div class="col-md-6"><p>$5,000.00</p></div>
-                                                        <div class="col-md-12 align-items-center">
-                                                            <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12 saved"><p>All changes saved</p></div>
-                                                    <div class="col-md-12"><a data-toggle="tab" href="#home" class="btn btn-default previous">Previous</a></div>
-                                                    <div class="col-md-12"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next">Next</a></div>
+                                                    <form role="form" class="transaction-form">
+                                                        <div class="col-sm-12">
+                                                            <div class="form-group first">
+                                                                <label>Account</label>
+                                                                <input type="text" class="form-control fromaccount" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
 
-                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 amount-div">
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label>From amount</label>
+                                                                    <input type="text" class="form-control fromamount" id="fromamount_second" name="from[]" value="" placeholder="From amount">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <div class="form-group">
+                                                                    <label>To</label>
+                                                                    <div class="form-group">
+                                                                        <input type="text" class="form-control toamount" id="toamount_second" name="toamount[]" value="" placeholder="To amount">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12">
+                                                            <p><b>Adjust remaining balance</b></p>
+                                                            <p class="remain_balance"></p>
+                                                        </div>
+                                                        <div class="devider"></div>
+                                                        <div class="col-md-12">
+                                                            <div class="add-acount">
+                                                                <span class="glyphicon glyphicon-plus-sign" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="divide3"></div>
+                                                        <div class="col-md-12">
+                                                            <div class="col-md-6"><b><p>Total From</p></b></div>
+                                                            <div class="col-md-6"><p class="total_from"></p></div>
+                                                            <div class="col-md-6"><b>Total To</b></div>
+                                                            <div class="col-md-6"><p class="total_to"></p></div>
+                                                            <div class="col-md-12 align-items-center">
+                                                                <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 saved"><p>All changes saved</p></div>
+                                                        <div class="col-md-12"><a data-toggle="tab" href="#home" class="btn btn-default previous">Previous</a></div>
+                                                        <div class="col-md-12"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next" id="second_next">Next</a></div>
 
-                                                <div class="clear"></div>
+                                                    </form>
+
+                                                    <div class="clear"></div>
 
                                             </div>
                                         </div>
@@ -316,8 +342,8 @@
                                                 <div class="from-box border-1 col-md-12">
                                                     <p><b>From</b></p>
                                                     <div class="from-cost-center">
-                                                        <p>11-01-01-00-10506-55085</p>
-                                                        <p>Art Supplies<b>$250.00</b></p>
+                                                        <p class="first_account"></p>
+                                                        <b><p class = "first_amount"></p></b>
                                                     </div>
                                                     <div class="from-cost-center">
                                                         <p>11-01-01-00-10506-55085</p>
@@ -375,270 +401,301 @@
                 </div>
             </div>
         </div>
+        <!--Header End-->
+        <!--Content Area Start-->
+        <div class="col-md-12">
+            <div class="content">
+                <div class="row">
+                    <div class="tab-content">
+                        <!--My Cost Center Table Start-->
+                        <div class="tab-pane fade in active" id="cost">
+                            <div class="col-md-12 table-responsive pading-top">
+
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td>Cost center</td>
+                                        <td>Budget Revenue</td>
+                                        <td>Actual Revenue</td>
+                                        <td>Budgeted Expenses</td>
+                                        <td>Actual and Encumbrances</td>
+                                        <td>Remaining Expenses</td>
+                                        <td>% Spent</td>
+                                        <td>Financial Health</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    $row = 1;
+                                    if (($handle = fopen("my-cost.csv", "r")) !== FALSE) {
+                                        $data = fgetcsv($handle, 1000, ",");
+                                        $i = 0;
+                                        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                                            $newtemp[$i++] = $data;
+                                            ?>
+                                            <tr>
+                                                <td scope="row"><?php echo $data[0]; ?><br/><span><?php echo $data[1]; ?></span>
+                                                </td>
+                                                <td><?php echo $data[2]; ?></td>
+                                                <td><?php echo $data[3]; ?></td>
+                                                <td><?php echo $data[4]; ?></td>
+                                                <td><?php echo $data[5]; ?></td>
+                                                <td><?php echo $data[6]; ?></td>
+                                                <td><?php echo $data[7]; ?></td>
+                                                <td>
+                                                    <?php if($data[7] < 0) { ?>
+                                                        <span class="glyphicon glyphicon-exclamation-sign excl"></span>
+                                                    <?php } else { ?>
+                                                        <span></span>
+                                                    <?php } if($data[7] > 0) { ?>
+                                                        <span class="glyphicon glyphicon-ok-sign profit"></span>
+                                                    <?php } else { ?>
+                                                        <span></span>
+                                                    <?php } ?>
+                                                </td>
+                                            </tr>
+                                        <?php } } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--My Cost Center Table End-->
+                        <!--Object View Table Start-->
+                        <div id="object" class="tab-pane fade">
+                            <div class="col-md-12 table-responsive pading-top">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td>Cost center</td>
+                                        <td>Budget Revenue</td>
+                                        <td>Actual Revenue</td>
+                                        <td>Actual and Encumbrances</td>
+                                        <td>Remaining Expenses</td>
+                                        <td>% Spent</td>
+                                        <td>Financial Health</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php
+                                    $row = 1;
+                                    if (($handle = fopen("my-objects.csv", "r")) !== FALSE) {
+                                        $data_objectview = fgetcsv($handle, 1000, ",");
+                                        while (($data_objectview = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                                            ?>
+                                            <tr>
+                                                <td scope="row"><?php echo $data[0]; ?><br/><span><?php echo $data_objectview[1]; ?></span>
+                                                </td>
+                                                <td><?php echo $data_objectview[2]; ?></td>
+                                                <td><?php echo $data_objectview[3]; ?></td>
+                                                <td><?php echo $data_objectview[4]; ?></td>
+                                                <td><?php echo $data_objectview[5]; ?></td>
+                                                <td><?php echo $data_objectview[6];?></td>
+                                                <td>
+                                                    <?php
+
+                                                    if($data_objectview[6] < 0){ ?>
+                                                        <span class="glyphicon glyphicon-exclamation-sign excl"></span>
+                                                    <?php }
+                                                    else { ?>
+                                                        <span></span>
+                                                    <?php }
+                                                    if($data_objectview[6] > 0){ ?>
+                                                        <span class="glyphicon glyphicon-ok-sign profit"></span>
+                                                    <?php }
+                                                    else { ?>
+                                                        <span></span>
+                                                    <?php }
+                                                    ?>
+                                                </td>
+                                            </tr>
+                                            <?php
+                                        }
+                                    }
+                                    ?>
+
+                                    </tbody>
+                                </table>
+
+
+
+                            </div>
+                        </div>
+                        <!--Object View Table End-->
+                        <!--Budget Adjustment Table Start-->
+                        <div id="budget" class="tab-pane fade">
+                            <div class="col-md-12 table-responsive pading-top">
+                                <table class="table">
+                                    <thead>
+                                    <tr>
+                                        <td>Cost center</td>
+                                        <td>Budget Revenue</td>
+                                        <td>Actual Revenue</td>
+                                        <td>Budgeted Expenses</td>
+                                        <td>Actual and Encumbrances</td>
+                                        <td>Remaining Expenses</td>
+                                        <td>% Spent</td>
+                                        <td>Financial Health</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology: Travel</span></td>
+                                        <td>$12,000.00</td>
+                                        <td>$9,453.45</td>
+                                        <td></td>
+                                        <td>$3,546.55</td>
+                                        <td>$3,546.55</td>
+                                        <td>27%</td>
+                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10518-55085<br/><span>Biology: Travel</span></td>
+                                        <td>$5,000.00</td>
+                                        <td>$5,100.00</td>
+                                        <td></td>
+                                        <td><span class="loss">-$100.00</span></td>
+                                        <td><span class="loss">-$100.00</span></td>
+                                        <td><span class="loss">-2%</span></td>
+                                        <td><span class="glyphicon glyphicon-exclamation-sign excl"></span></td>
+                                    </tr>
+                                    <tr>
+                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology Travel</span></td>
+                                        <td>$12,000.00</td>
+                                        <td>$9,453.45</td>
+                                        <td></td>
+                                        <td>$3,546.55</td>
+                                        <td>-$100.00</td>
+                                        <td>27%</td>
+                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!--Budget Adjustment Table End-->
+
+                    </div>
+                    <!--Tab-content End-->
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 </div>
-</div>
 
 
-</div>
-<!--Header End-->
-<!--Content Area Start-->
-<div class="col-md-12">
-    <div class="content">
-        <div class="row">
-            <div class="tab-content">
-                <!--My Cost Center Table Start-->
-                <div class="tab-pane fade in active" id="cost">
-                    <div class="col-md-12 table-responsive pading-top">
+<!--Footer-->
+<script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
+<!-- Auto suggestion Code Starts Here -->
+<?php
+$temp = array();
+$row = 1;
+if (($handle = fopen("my-cost.csv", "r")) !== FALSE) {
+    $data = fgetcsv($handle, 1000, ",");
+    $i = 0;
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $temp[$i++] = $data[1];
+    }
+}
+fclose($handle);
+$detail_array = array();
+$dataid_array = array();
+foreach ($newtemp as $newtemp_val){
+    $detail_array[$newtemp_val[1]] = $newtemp_val[6] ;
+    $dataid_array[$newtemp_val[1]] = $newtemp_val[0] ;
+}
+?>
+<script>
+    var temp = <?php echo json_encode($temp); ?>;
+    var availableTags = temp;
+    $("body").delegate(".fromaccount", "keypress", function(){
+        console.log($(this).attr('class'));
+        $(this).autocomplete({
+            source: availableTags
+        });
+    });
+    <!-- Auto suggestion Code Ends Here -->
+    var room = 1;
+    function education_fields() {
 
-                        <table class="table" >
-                            <thead>
-                            <tr>
-                                <td>Cost center</td>
-                                <td>Budget Revenue</td>
-                                <td>Actual Revenue</td>
-                                <td>Budgeted Expenses</td>
-                                <td>Actual and Encumbrances</td>
-                                <td>Remaining Expenses</td>
-                                <td>% Spent</td>
-                                <td>Financial Health</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php
-                            $row = 1;
-                            if (($handle = fopen("my-cost-centers-2016 (1).csv", "r")) !== FALSE) {
-                                $data = fgetcsv($handle, 1000, ",");
-                                while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                                    ?>
-                                    <tr>
-                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span><?php echo $data[0]; ?><br/><span><?php echo $data[1]; ?></span>
-                                        </td>
-                                        <td><?php echo $data[2] ?></td>
-                                        <td><?php echo $data[3] ?></td>
-                                        <td><?php echo $data[4] ?></td>
-                                        <td><?php echo $data[5] ?></td>
-                                        <td><?php echo $data[6]?></td>
-                                        <td><?php echo $data[7] ?></td>
-                                        <td>
-                                            <?php
-                                            if($data[7] < 0){?>
-                                                <span class="glyphicon glyphicon-exclamation-sign excl"></span>
-                                            <?php}
-                                            else{ ?>
-                                                <span></span>
-                                            <?php }
-                                            if($data[7] > 0){?>
-                                                <span class="glyphicon glyphicon-ok-sign profit"></span>
-                                            <?php}
-                                            else{ ?>
-                                                <span></span>
-                                            <?php }
-                                            ?>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                }
-                            }
-                            ?>
-
-
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!--My Cost Center Table End-->
-                <!--Object View Table Start-->
-                <div id="object" class="tab-pane fade">
-                    <div class="col-md-12 table-responsive pading-top">
-
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <td>Cost center</td>
-                                <td>Budget Revenue</td>
-                                <td>Actual Revenue</td>
-                                <td>Actual and Encumbrances</td>
-                                <td>Remaining Expenses</td>
-                                <td>% Spent</td>
-                                <td>Financial Health</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            <?php
-                            $row = 1;
-
-                            $row = 1;
-                            if (($handle = fopen("my-objects.csv", "r")) !== FALSE) {
-                                $data_objectview = fgetcsv($handle, 1000, ",");
-                                while (($data_objectview = fgetcsv($handle, 1000, ",")) !== FALSE) {
-                                    ?>
-                                    <tr>
-                                        <td scope="row"><?php echo $data[0]; ?><br/><span><?php echo $data_objectview[1]; ?></span>
-                                        </td>
-                                        <td><?php echo $data_objectview[2]; ?></td>
-                                        <td><?php echo $data_objectview[3]; ?></td>
-                                        <td><?php echo $data_objectview[4]; ?></td>
-                                        <td><?php echo $data_objectview[5]; ?></td>
-                                        <td><?php echo $data_objectview[6];?></td>
-                                        <td>
-                                            <?php
-
-                                            if($data_objectview[6] < 0){ ?>
-                                                <span class="glyphicon glyphicon-exclamation-sign excl"></span>
-                                            <?php}
-                                            else{ ?>
-                                                <span></span>
-                                            <?php }
-                                            if($data_objectview[6] > 0){ ?>
-                                                <span class="glyphicon glyphicon-ok-sign profit"></span>
-                                            <?php}
-                                            else{ ?>
-                                                <span></span>
-                                            <?php }
-                                            ?>
-                                        </td>
-                                    </tr>
-                                    <?php
-                                }
-                            }
-                            ?>
-
-                            </tbody>
-                        </table>
+        room++;
+        var objTo = document.getElementById('education_fields')
+        var divtest = document.createElement("div");
+        divtest.setAttribute("class", "form-group removeclass" + room);
+        var rdiv = 'removeclass' + room;
+        divtest.innerHTML = '<div class="col-sm-12">' +
+            '<div class="form-group">' +
+            '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields(' + room + ');"> </span></label> ' +
+            '<input type="text" class="form-control fromaccount" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
+            '</div></div>' +
+            '<div class="col-sm-12 amount-div">' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            '<label>From</label> ' +
+            '<input type="text" class="form-control fromamount" id="from1" name="from[]" value="" placeholder="From amount"></div></div>' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            ' <label>To</label>' +
+            '<input type="text" class="form-control toamount" id="toamount1" name="toamount[]" value="" placeholder="To amount">' +
+            '</div></div></div>' +
+            '<div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div>' +
+            '<div class="devider"></div></div><div class="clear"></div>';
+        objTo.appendChild(divtest)
+    }
+    function remove_education_fields(rid) {
+        $('.removeclass'+rid).remove();
+    }
 
 
-
-                    </div>
-                </div>
-                <!--Object View Table End-->
-                <!--Budget Adjustment Table Start-->
-                <div id="budget" class="tab-pane fade">
-                    <div class="col-md-12 table-responsive pading-top">
-
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <td>Cost center</td>
-                                <td>Budget Revenue</td>
-                                <td>Actual Revenue</td>
-                                <td>Budgeted Expenses</td>
-                                <td>Actual and Encumbrances</td>
-                                <td>Remaining Expenses</td>
-                                <td>% Spent</td>
-                                <td>Financial Health</td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology: Travel</span></td>
-                                <td>$12,000.00</td>
-                                <td>$9,453.45</td>
-                                <td></td>
-                                <td>$3,546.55</td>
-                                <td>$3,546.55</td>
-                                <td>27%</td>
-                                <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10518-55085<br/><span>Biology: Travel</span></td>
-                                <td>$5,000.00</td>
-                                <td>$5,100.00</td>
-                                <td></td>
-                                <td><span class="loss">-$100.00</span></td>
-                                <td><span class="loss">-$100.00</span></td>
-                                <td><span class="loss">-2%</span></td>
-                                <td><span class="glyphicon glyphicon-exclamation-sign excl"></span></td>
-                            </tr>
-                            <tr>
-                                <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology Travel</span></td>
-                                <td>$12,000.00</td>
-                                <td>$9,453.45</td>
-                                <td></td>
-                                <td>$3,546.55</td>
-                                <td>-$100.00</td>
-                                <td>27%</td>
-                                <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <!--Budget Adjustment Table End-->
-
-            </div>
-            <!--Tab-content End-->
-        </div>
-
-        <!-- Menu Toggle Script -->
-
-        <style>
-            .marginLEFT{margin-left:410px;}
-
-        </style>
-        <script>
-
-            $(".menu-toggle").click(function(e) {
-                e.preventDefault();
-                $(".table").width("100%").removeClass('marginLEFT');
-                $("#wrapper-filter").removeClass("toggled");
-                $("#wrapper").toggleClass("toggled");
-                if($('#wrapper').hasClass("toggled")==true){
-                    var bsContainerWidth =$( window ).width();
-                    if (bsContainerWidth = 1580)
-                        $(".table").width("71%");
-                    else
-                        $(".table").width("66%");
-                    $(".right-sidebar").width("100%");
-                }else {
-                    $(".table").width("100%");
+    $(document).ready(function(){
+        $(".fromamount").blur(function(){
+            var from_val = $(".fromamount").val();
+            $("#toamount_second").val(from_val);
+            var fromaccount = $(".fromaccount").val();
+            var alldata = <?php echo json_encode($detail_array) ?>;
+            for (i in alldata) {
+                if(i == fromaccount) {
+                    var removesign = alldata[i].replace("$", "");
+                    var finalval = Number(removesign) - from_val;
+                    $(".remain_balance").html(finalval);
+                    $(".total_from").html(finalval);
                 }
-            });
-
-            $("#filter-button").click(function(e) {
-                e.preventDefault();
-                $("#wrapper").removeClass('toggled');
-                $("#wrapper-filter").toggleClass("toggled");
-                if($('#wrapper-filter').hasClass("toggled")==true){
-                    $(".table").width("70%").addClass('marginLEFT');
-                    $(".left-sidebar").width("100%");
-                }else {
-                    $(".table").width("100%").removeClass('marginLEFT');
-                }
-            });
-
-
-
-        </script>
-
-        <!--Footer-->
-        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.6.3/js/bootstrap-select.min.js"></script>
-        <script>
-            var room = 1;
-            function education_fields() {
-
-                room++;
-                var objTo = document.getElementById('education_fields')
-                var divtest = document.createElement("div");
-                divtest.setAttribute("class", "form-group removeclass"+room);
-                var rdiv = 'removeclass'+room;
-                divtest.innerHTML = '<div class="col-sm-12"><div class="form-group"><label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields('+ room +');"> </span></label> <input type="text" class="form-control" id="account" name="account[]" value="" placeholder="Select Account from table or searcht"></div></div><div class="col-sm-6 "><div class="form-group"><label>From</label> <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount"></div></div><div class="col-sm-6 "><div class="form-group"> <label>To</label><input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount"></div></div><div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div><div class="devider"></div></div><div class="clear"></div>';
-
-                objTo.appendChild(divtest)
-            }
-            function remove_education_fields(rid) {
-                $('.removeclass'+rid).remove();
             }
 
-            function enable() {        //$('#toamount').setAttribute('readonly',false);
-                document.getElementById( 'from' ).removeAttribute('readonly');
-                document.getElementById( 'toamount' ).setAttribute('readonly',true);    }
+        });
+        $(".toamount").blur(function(){
+            var from_val = $(".toamount").val();
+            $("#fromamount_second").val(from_val);
+            var fromaccount = $(".fromaccount").val();
+            var alldata = <?php echo json_encode($detail_array) ?>;
+            for (i in alldata) {
+                if(i == fromaccount) {
+                    var removesign = alldata[i].replace("$", "");
+                    var finalval = Number(removesign) - from_val;
+                    $(".remain_balance").html(finalval);
+                    $(".total_to").html(finalval);
+                }
+            }
 
-            function enableto() {        //$('#from').setAttribute('readonly',false);
-                document.getElementById( 'toamount' ).removeAttribute('readonly');
-                document.getElementById( 'from' ).setAttribute('readonly',true);    }
-        </script>
+        });
+        $("#second_next").click(function(){
+            var from_val1 = "$"+$(".fromamount").val();
+            var fromaccount1 = $(".fromaccount").val();
+            $(".first_account").html(fromaccount1);
+            $(".first_amount").html(from_val1);
+            $(".total_bal").html(finalval);
+
+
+        });
+        $("#from").click(function(){
+            $('#fromamount_second').prop('disabled', true);
+        });
+        $("#toamount").click(function(){
+            $('#toamount_second').prop('disabled', true);
+        });
+    });
+</script>
 </body>
 </html>
