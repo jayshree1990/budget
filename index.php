@@ -459,11 +459,6 @@
                                                             <div class="form-group first">
                                                                 <label>Account</label>
                                                                 <input type="text" class="form-control fromaccount" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
-                                                               <!-- <select class="selectpicker" data-live-search="true">
-                                                                    <option data-tokens="ketchup mustard">Select Account from table or search</option>
-                                                                    <option data-tokens="mustard">Burger, Shake and a Smile</option>
-                                                                    <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-                                                                </select>-->
 
                                                             </div>
                                                         </div>
@@ -471,7 +466,6 @@
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>From amount</label>
-                                                                <!--                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount">-->
                                                                 <input type="text" class="form-control fromamount" id="from" name="from[]" value="" placeholder="From amount">
                                                             </div>
                                                         </div>
@@ -479,13 +473,36 @@
                                                             <div class="form-group">
                                                                 <label>To</label>
                                                                 <div class="form-group">
-                                                                    <!--                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount">-->
-                                                                   <!-- <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">-->
                                                                     <input type="text" class="form-control toamount" id="toamount" name="toamount[]" value="" placeholder="To amount">
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         </div>
+
+                                                        <form role="form" class="transaction-form">
+                                                            <div class="col-sm-12">
+                                                                <div class="form-group first">
+                                                                    <label>Account</label>
+                                                                    <input type="text" class="form-control fromaccount" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12 amount-div">
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label>From amount</label>
+                                                                        <input type="text" class="form-control fromamount" id="fromamount_second" name="from[]" value="" placeholder="From amount">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div class="form-group">
+                                                                        <label>To</label>
+                                                                        <div class="form-group">
+                                                                            <input type="text" class="form-control toamount" id="toamount_second" name="toamount[]" value="" placeholder="To amount">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
                                                         <div class="col-md-12">
                                                             <p><b>Adjust remaining balance</b></p>
                                                             <p class="remain_balance"></p>
@@ -701,6 +718,7 @@ foreach ($newtemp as $newtemp_val){
     $(document).ready(function(){
         $(".fromamount").blur(function(){
             var from_val = $(".fromamount").val();
+            $("#toamount_second").val(from_val);
             var fromaccount = $(".fromaccount").val();
             var alldata = <?php echo json_encode($detail_array) ?>;
             for (i in alldata) {
@@ -715,6 +733,7 @@ foreach ($newtemp as $newtemp_val){
         });
         $(".toamount").blur(function(){
             var from_val = $(".toamount").val();
+            $("#fromamount_second").val(from_val);
             var fromaccount = $(".fromaccount").val();
             var alldata = <?php echo json_encode($detail_array) ?>;
             for (i in alldata) {
@@ -735,6 +754,13 @@ foreach ($newtemp as $newtemp_val){
             $(".total_bal").html(finalval);
 
 
+        });
+
+        $("#from").click(function(){
+            $('#fromamount_second').prop('disabled', true);
+        });
+        $("#toamount").click(function(){
+            $('#toamount_second').prop('disabled', true);
         });
     });
 </script>
