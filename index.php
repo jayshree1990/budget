@@ -150,10 +150,10 @@
                         <table class="table table-bordered left-sidebar">
                             <tr>
                                 <div class="Rectangle-3">
+                                    <span class="glyphicon glyphicon-remove cancel cancel" id="left_bar"></span>
                                     <h4 style="margin:20px;text-align:center">Saved Selection Criterias</h4>
 
-
-                                    <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">select criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                    <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">Select Criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
 
                                     <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
 

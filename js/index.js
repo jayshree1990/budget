@@ -94,6 +94,12 @@
          $('.table').width('100%');
      });
 
+     $('#left_bar').click(function(){
+         $('#wrapper-filter').removeClass('toggled');
+         $('.table').width('100%').removeClass('marginLEFT');
+     });
+
+
      //---- Text-Box Enable And Disable Code Starts Here ----
      $("body").delegate(".fromamount", "click", function(){
          $(this).closest('.amount-div').find('.toamount').attr('readonly', true);
