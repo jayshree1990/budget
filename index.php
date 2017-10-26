@@ -259,18 +259,14 @@
                                                         <div class="form-group first">
                                                             <label>Account</label>
                                                             <input type="text" class="form-control" id="account_field" name="account_field" value="" placeholder="Enter Account from table or search">
-                                                            <!-- <select class="selectpicker" data-live-search="true">
-                                                                 <option data-tokens="ketchup mustard">Select Account from table or search</option>
-                                                                 <option data-tokens="mustard">Burger, Shake and a Smile</option>
-                                                                 <option data-tokens="frosting">Sugar, Spice and all things nice</option>
-                                                             </select>-->
+
 
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-6">
                                                         <div class="form-group">
                                                             <label>From amount</label>
-                                                            <!--                                                                <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount">-->
+
                                                             <input type="text" class="form-control" id="from" name="from[]" value="" placeholder="From amount" onclick="enable();">
                                                         </div>
                                                     </div>
@@ -278,8 +274,7 @@
                                                         <div class="form-group">
                                                             <label>To</label>
                                                             <div class="form-group">
-                                                                <!--                                                                    <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount">-->
-                                                                <!-- <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">-->
+
                                                                 <input type="text" class="form-control" id="toamount" name="toamount[]" value="" placeholder="To amount" onclick="enableto();">
                                                             </div>
                                                         </div>
@@ -396,62 +391,7 @@
                 <!--My Cost Center Table Start-->
                 <div class="tab-pane fade in active" id="cost">
                     <div class="col-md-12 table-responsive pading-top">
-                        <!-- <div class="before_table col-md-9">
-                             <div class="filter">
-                                 <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
-                                 <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                             </div>
-                             <div id="wrapper-filter">
 
-
-                                 <div id="sidebar-wrapper-filter">
-                                     <table class="table table-bordered left-sidebar">
-                                         <tr>
-                                             <div class="Rectangle-3">
-                                                 <h4 style="margin:20px;text-align:"center">Saved Selection Criterias</h4>
-
-
-                                                 <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">select criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
-
-                                                 <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
-
-                                             </div>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" style="margin-left:1%"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " style="margin-left:1%"></span></a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;width:80%;" role="button" >Apply Filters</a>
-                                         </tr>
-                                         <tr>
-                                             <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important"role="button" >Apply Filters</a>
-                                             <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important" role="button" >Apply Filters</a>
-                                         </tr>
-                                     </table>
-                                 </div>
-                             </div>
-                         </div>-->
                         <table class="table" >
                             <thead>
                             <tr>
@@ -512,63 +452,7 @@
                 <!--Object View Table Start-->
                 <div id="object" class="tab-pane fade">
                     <div class="col-md-12 table-responsive pading-top">
-                        <!-- <div class="col-md-12 table-responsive pading-top">
-                          <!--   <div class="before_table col-md-9">
-                                 <div class="filter">
-                                     <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
-                                     <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                 </div>
-                                 <div id="wrapper-filter">
 
-
-                                     <div id="sidebar-wrapper-filter">
-                                         <table class="table table-bordered left-sidebar">
-                                             <tr>
-                                                 <div class="Rectangle-3">
-                                                     <h4 style="margin:20px;text-align:"center">Saved Selection Criterias</h4>
-
-
-                                                     <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">select criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
-
-                                                     <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
-
-                                                 </div>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" style="margin-left:1%"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " style="margin-left:1%"></span></a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;width:80%;" role="button" >Apply Filters</a>
-                                             </tr>
-                                             <tr>
-                                                 <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important"role="button" >Apply Filters</a>
-                                                 <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important" role="button" >Apply Filters</a>
-                                             </tr>
-                                         </table>
-                                     </div>
-                                 </div>
-                             </div>--->
                         <table class="table">
                             <thead>
                             <tr>
@@ -621,181 +505,7 @@
                                 }
                             }
                             ?>
-                            <!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td data-toggle="collapse" data-target=" #collapsein-one"><b>Assets</b></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td><b>$895,000.00</b></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!---->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="collapsein-one" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>1010-Cash on Hand</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$25,000.00</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="collapsein-one" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>10300-Account Receivable<br/>Student</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$870,000.00<br />0</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td data-toggle="collapse" data-target=" #liabilities"><b>Liabilities</b></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td><b>$10,000.00</b></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="liabilities" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>20001-Account Payable<br/>Vendors</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$10,000.00<br />0</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!---->
-                            <!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td data-toggle="collapse" data-target=" #fund"><b>Fund Balances</b></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td><b>$520,000.00</b></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="fund" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>30000 Fund Balance: General</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$520,000.00</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td data-toggle="collapse" data-target=" #revenue"><b>Revenue</b></td>-->
-                            <!--                                        <td><b>$132,050.00</b></td>-->
-                            <!--                                        <td><b>$132,269.00</b></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td><span class="green"><b>-$219.00</b></span></td>-->
-                            <!--                                        <td><span class="green"><b>100%</b></span></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>40786 - State Revenue</td>-->
-                            <!--                                        <td>$66,025.00</td>-->
-                            <!--                                        <td>$65,000.00</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$1,025.00<br/> 0</td>-->
-                            <!--                                        <td>98%</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>41555 - Tution & Fees</td>-->
-                            <!--                                        <td>$16,000.00</td>-->
-                            <!--                                        <td>$15,900.00</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$100.00</td>-->
-                            <!--                                        <td>99%</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="revenue" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>49000 - Misc</td>-->
-                            <!--                                        <td>$50,025.00</td>-->
-                            <!--                                        <td>$51,369.00</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td><span class="green">$1,344.00</span></td>-->
-                            <!--                                        <td><span class="green">103%</span></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="collapsetwo" class="collapse bgbag" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td data-toggle="collapse" data-target=" #exp"><b>Expences</b></td>-->
-                            <!--                                        <td>$48,000.00</td>-->
-                            <!--                                        <td>$32,333.00</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$11,666.00</td>-->
-                            <!--                                        <td>24%</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="exp" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>55320 - Lab Supplies</td>-->
-                            <!--                                        <td>$24,000.00</td>-->
-                            <!--                                        <td>$13,716.90</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$4,000.00</td>-->
-                            <!--                                        <td>$6,283.1</td>-->
-                            <!--                                        <td>26%</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr id="exp" class="collapse" role="tabpanel" aria-labelledby="headingOne">-->
-                            <!--                                        <td><span class="green glyphicon glyphicon-chevron-down fsize"></span>55065 - Lab Supplies</td>-->
-                            <!--                                        <td>$24,000.00</td>-->
-                            <!--                                        <td>$13,716.90</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$4,000.00</td>-->
-                            <!--                                        <td>$6,283.1</td>-->
-                            <!--                                        <td>22%</td>-->
-                            <!--                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr>-->
-                            <!--                                        <td scope="row">-->
-                            <!--									<span class="plus glyphicon glyphicon-plus-sign" data-toggle="collapse" data-target=" #collapsetwo">-->
-                            <!--									</span>11-01-01-00-10506-55085<br/><span>Biology: Travel</span>-->
-                            <!--                                        </td>-->
-                            <!--                                        <td>$12,000.00</td>-->
-                            <!--                                        <td>$9,453.45</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$3,546.55</td>-->
-                            <!--                                        <td>$3,546.55</td>-->
-                            <!--                                        <td>27%</td>-->
-                            <!--                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr>-->
-                            <!--                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10518-55085<br/><span>Biology: Travel</span></td>-->
-                            <!--                                        <td>$5,000.00</td>-->
-                            <!--                                        <td>$5,100.00</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td><span class="loss">-$100.00</span></td>-->
-                            <!--                                        <td><span class="loss">-$100.00</span></td>-->
-                            <!--                                        <td><span class="loss">-2%</span></td>-->
-                            <!--                                        <td><span class="glyphicon glyphicon-exclamation-sign excl"></span></td>-->
-                            <!--                                    </tr>-->
-                            <!--                                    <tr>-->
-                            <!--                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology Travel</span></td>-->
-                            <!--                                        <td>$12,000.00</td>-->
-                            <!--                                        <td>$9,453.45</td>-->
-                            <!--                                        <td></td>-->
-                            <!--                                        <td>$3,546.55</td>-->
-                            <!--                                        <td>-$100.00</td>-->
-                            <!--                                        <td>27%</td>-->
-                            <!--                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>-->
-                            <!--                                    </tr>-->
+
                             </tbody>
                         </table>
 
@@ -807,12 +517,7 @@
                 <!--Budget Adjustment Table Start-->
                 <div id="budget" class="tab-pane fade">
                     <div class="col-md-12 table-responsive pading-top">
-                        <!--<div class="before_table col-md-9">
-                            <div class="filter">
-                                <a href="#" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
-                                <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
-                            </div>
-                        </div>-->
+
                         <table class="table">
                             <thead>
                             <tr>
