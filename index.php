@@ -432,19 +432,19 @@
                                                         <div class="form-group">
                                                             <label>Transaction Date *</label>
                                                             <div class="input-group date" id="datetimepicker">
-                                                                <input class="form-control" placeholder="dd/mm/yyyy" value="" type="text">
+                                                                <input class="form-control" placeholder="dd/mm/yyyy" value="" type="text" id="transaction_date">
                                                                 <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span></div></div>
                                                         <div class="form-group">
                                                             <label>Initiator *</label>
-                                                            <input class="form-control" placeholder="Responsible Person" type="text">
+                                                            <input class="form-control" placeholder="Responsible Person" type="text" id="initiator">
                                                         </div>
                                                         <div class="form-group">
                                                             <label>Reason </label>
-                                                            <input class="form-control" placeholder="Reason For Adjustment" type="text">
+                                                            <input class="form-control" placeholder="Reason For Adjustment" type="text" id="reason">
                                                         </div>
                                                         <div class="form-group submit-next">
                                                             <label>All Changes Saved </label>
-                                                            <a data-toggle="tab" href="#menu1" class="btn btn-info btn-lg next">Next</a>
+                                                            <a data-toggle="tab" href="#menu1" class="btn btn-info btn-lg next" id="first_next">Next</a>
                                                         </div>
 
                                                     </form>
@@ -483,7 +483,7 @@
                                                             <div class="col-sm-12">
                                                                 <div class="form-group first">
                                                                     <label>Account</label>
-                                                                    <input type="text" class="form-control fromaccount" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
+                                                                    <input type="text" class="form-control fromaccount fromaccount_second" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
 
                                                                 </div>
                                                             </div>
@@ -515,9 +515,9 @@
                                                         </div>
                                                         <div class="divide3"></div>
                                                         <div class="col-md-12">
-                                                            <div class="col-md-6"><b><p>Total From</p></b></div>
+                                                            <div class="col-md-6 total_from_text"><b><p>Total From</p></b></div>
                                                             <div class="col-md-6"><p class="total_from"></p></div>
-                                                            <div class="col-md-6"><b>Total To</b></div>
+                                                            <div class="col-md-6 total_to_text"><b>Total To</b></div>
                                                             <div class="col-md-6"><p class="total_to"></p></div>
                                                             <div class="col-md-12 align-items-center">
                                                                 <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
@@ -542,32 +542,28 @@
                                                             <p class="first_account"></p>
                                                             <b><p class = "first_amount"></p></b>
                                                         </div>
-                                                        <div class="from-cost-center">
-                                                            <p>11-01-01-00-10506-55085</p>
-                                                            <p>Artist Retreat<b>$250.00</b></p>
-                                                        </div>
                                                         <div class="divider2"></div>
-                                                        <p><span class="text-left"><b>Total</b></span><span class="text-right"><b>$500.00</b></span></p>
+                                                        <p><span class="text-left"><b>Total</b></span><span class="text-right total_bal"><b></b></span></p>
                                                     </div>
                                                     <div class="from-box border-1 col-md-12">
                                                         <p><b>To</b></p>
                                                         <div class="from-cost-center">
-                                                            <p>11-01-01-00-10506-55085</p>
-                                                            <p>Art Supplies<b>$250.00</b></p>
+                                                            <p class="first_to_account"></p>
+                                                            <b><p class = "first_to_amount"></p></b>
                                                         </div>
                                                         <div class="divider2"></div>
-                                                        <p><span class="text-left"><b>Total</b></span><span class="text-right"><b>$250.00</b></span></p>
+                                                        <p><span class="text-left"><b>Total</b></span><span class="text-right total_to_bal"><b></b></span></p>
                                                     </div>
                                                     <div class="col-md-12 align-items-center margin-top-20">
                                                         <span class="glyphicon glyphicon-ok-sign center"></span>balanced transaction
                                                     </div>
                                                     <div class="trans-date col-md-12 nopadding">
                                                         <div class="transaction-date">
-                                                            <div class="col-md-6 nopadding"><b>Transaction Date</b><br />7/26/17</div>
-                                                            <div class="col-md-6 nopadding"><b>Initiator</b><br />Jane Seymore</div>
+                                                            <div class="col-md-6 nopadding"><b>Transaction Date</b><br /><div class = "transcation_date_text"></div></div>
+                                                            <div class="col-md-6 nopadding"><b>Initiator</b><br /><div class="initiator_text"></div></div>
                                                         </div>
                                                         <div class="transaction-date">
-                                                            <div class="col-md-12 nopadding"><b>Reason</b><br />Art Trip Adjustment</div>
+                                                            <div class="col-md-12 nopadding"><b>Reason</b><br /><div class="reason_text"></div></div>
                                                         </div>
                                                     </div>
                                                     <div class="attachment col-md-12 nopadding">
@@ -724,12 +720,15 @@ foreach ($newtemp as $newtemp_val){
             for (i in alldata) {
                 if(i == fromaccount) {
                     var removesign = alldata[i].replace("$", "");
-                    var finalval = Number(removesign) - from_val;
+                    var final_val = Number(removesign) - from_val;
+                    var finalval = "$"+final_val;
                     $(".remain_balance").html(finalval);
                     $(".total_from").html(finalval);
                 }
             }
-
+            $(".first_account").html(fromaccount);
+            $(".first_amount").html("$"+$(".fromamount").val());
+            $(".total_bal").html("$"+$(".fromamount").val());
         });
         $(".toamount").blur(function(){
             var from_val = $(".toamount").val();
@@ -739,29 +738,37 @@ foreach ($newtemp as $newtemp_val){
             for (i in alldata) {
                 if(i == fromaccount) {
                     var removesign = alldata[i].replace("$", "");
-                    var finalval = Number(removesign) - from_val;
+                    var final_val = Number(removesign) - from_val;
+                    var finalval = "$"+final_val;
                     $(".remain_balance").html(finalval);
                     $(".total_to").html(finalval);
                 }
             }
-
         });
         $("#second_next").click(function(){
-            var from_val1 = "$"+$(".fromamount").val();
-            var fromaccount1 = $(".fromaccount").val();
-            $(".first_account").html(fromaccount1);
-            $(".first_amount").html(from_val1);
-            $(".total_bal").html(finalval);
-
+            $(".first_to_account").html($(".fromaccount_second").val());
+            $(".first_to_amount").html("$"+$("#toamount_second").val());
+            $(".total_to_bal").html("$"+$("#toamount_second").val());
 
         });
+        $("#first_next").click(function () {
+            $(".transcation_date_text").html($("#transaction_date").val());
+            $(".initiator_text").html($("#initiator").val());
+            $(".reason_text").html($("#reason").val());
+        });
 
+        /*  START add for disable enable from and to */
         $("#from").click(function(){
             $('#fromamount_second').prop('disabled', true);
+            $('#toamount').prop('disabled',true);
+            $('.total_to_text').hide();
         });
         $("#toamount").click(function(){
             $('#toamount_second').prop('disabled', true);
+            $('#from').prop('disabled',true);
+            $('.total_from_text').hide();
         });
+        /*  End add for disable enable from and to */
     });
 </script>
 </body>
