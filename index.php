@@ -254,8 +254,6 @@
                                         </div>
                                         <div id="menu1" class="tab-pane fade">
                                             <div class="tab1-content nopadding">
-
-                                                <div id="education_fields"> </div>
                                                 <form role="form" class="transaction-form">
                                                     <div class="col-sm-12">
                                                         <div class="form-group first">
@@ -306,6 +304,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                        <div id="education_fields"> </div>
                                                         <div class="col-md-12">
                                                             <p><b>Adjust remaining balance</b></p>
                                                             <p class="remain_balance"></p>
@@ -615,8 +614,24 @@ foreach ($newtemp as $newtemp_val){
     <!-- Auto suggestion Code Ends Here -->
     var room = 1;
     function education_fields() {
-
         room++;
+       var  finalval_data1 = '';
+        var  finalval_data2 = '';
+        var from_val_first = $("#from").val();
+        var to_val_first = $("#toamount").val();
+        if(from_val_first != ''){
+            finalval_data1 = from_val_first/room;
+            $("#toamount_second").val(finalval_data1);
+            $(".toamountloop").val(finalval_data1);
+            $(".fromamountloop").prop('disabled', true);
+
+        }
+        else if(to_val_first != ''){
+            finalval_data2 = to_val_first/room;
+            $("#fromamount_second").val(finalval_data2);
+            $(".fromamountloop").val(finalval_data2);
+            $(".toamountloop").prop('disabled', true);
+        }
         var objTo = document.getElementById('education_fields')
         var divtest = document.createElement("div");
         divtest.setAttribute("class", "form-group removeclass" + room);
@@ -624,20 +639,18 @@ foreach ($newtemp as $newtemp_val){
         divtest.innerHTML = '<div class="col-sm-12">' +
             '<div class="form-group">' +
             '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields(' + room + ');"> </span></label> ' +
-            '<input type="text" class="form-control fromaccount" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
+            '<input type="text" class="form-control fromaccount fromaccountloop" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
             '</div></div>' +
             '<div class="col-sm-12 amount-div">' +
             '<div class="col-sm-6 ">' +
             '<div class="form-group">' +
             '<label>From</label> ' +
-            '<input type="text" class="form-control fromamount" id="from1" name="from[]" value="" placeholder="From amount"></div></div>' +
+            '<input type="text" class="form-control fromamount fromamountloop" id="from1" name="from[]" value="'+finalval_data2+'" placeholder="From amount"></div></div>' +
             '<div class="col-sm-6 ">' +
             '<div class="form-group">' +
             ' <label>To</label>' +
-            '<input type="text" class="form-control toamount" id="toamount1" name="toamount[]" value="" placeholder="To amount">' +
-            '</div></div></div>' +
-            '<div class="col-md-12"><p><b>Adjust remaining balance</b></p><p>$1,300.00</p><p>0</p></div>' +
-            '<div class="devider"></div></div><div class="clear"></div>';
+            '<input type="text" class="form-control toamount toamountloop" id="toamount1" name="toamount[]" value="'+finalval_data1+'" placeholder="To amount">' +
+            '</div></div></div>';
         objTo.appendChild(divtest)
     }
     function remove_education_fields(rid) {
@@ -685,7 +698,7 @@ foreach ($newtemp as $newtemp_val){
                 $(".total_bal").html("$"+fromamount1);
                 $(".first_to_account").html($(".fromaccount_second").val());
                 $(".first_to_amount").html("$"+$("#toamount_second").val());
-                $(".total_to_bal").html("$"+$("#toamount_second").val());
+                $(".total_to_bal").html("$"+fromamount1);
             }
 
             var toamount1 = $(".toamount").val();
@@ -696,7 +709,7 @@ foreach ($newtemp as $newtemp_val){
                 $(".total_to_bal").html("$"+toamount1);
                 $(".first_account").html($(".fromaccount_second").val());
                 $(".first_amount").html("$"+toamount2);
-                $(".total_bal").html("$"+toamount2);
+                $(".total_bal").html("$"+toamount1);
 
             }
 
