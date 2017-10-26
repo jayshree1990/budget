@@ -660,9 +660,6 @@ foreach ($newtemp as $newtemp_val){
                     $(".total_from").html(finalval);
                 }
             }
-            $(".first_account").html(fromaccount);
-            $(".first_amount").html("$"+$(".fromamount").val());
-            $(".total_bal").html("$"+$(".fromamount").val());
         });
         $(".toamount").blur(function(){
             var from_val = $(".toamount").val();
@@ -680,9 +677,28 @@ foreach ($newtemp as $newtemp_val){
             }
         });
         $("#second_next").click(function(){
-            $(".first_to_account").html($(".fromaccount_second").val());
-            $(".first_to_amount").html("$"+$("#toamount_second").val());
-            $(".total_to_bal").html("$"+$("#toamount_second").val());
+            var fromaccount1 = $("#fromaccount").val();
+            var fromamount1 = $(".fromamount").val();
+            if(fromamount1 != ''){
+                $(".first_account").html(fromaccount1);
+                $(".first_amount").html("$"+fromamount1);
+                $(".total_bal").html("$"+fromamount1);
+                $(".first_to_account").html($(".fromaccount_second").val());
+                $(".first_to_amount").html("$"+$("#toamount_second").val());
+                $(".total_to_bal").html("$"+$("#toamount_second").val());
+            }
+
+            var toamount1 = $(".toamount").val();
+            var toamount2 = $("#fromamount_second").val();
+            if(toamount1 != ''){
+                $(".first_to_account").html(fromaccount1);
+                $(".first_to_amount").html("$"+toamount1);
+                $(".total_to_bal").html("$"+toamount1);
+                $(".first_account").html($(".fromaccount_second").val());
+                $(".first_amount").html("$"+toamount2);
+                $(".total_bal").html("$"+toamount2);
+
+            }
 
         });
         $("#first_next").click(function () {
