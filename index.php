@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -344,6 +344,10 @@
                                                         <p class="first_account"></p>
                                                         <b><p class = "first_amount"></p></b>
                                                     </div>
+                                                    <div class="from-cost-center" id="append_name_value_from">
+                                                        <p class="first_from_account"></p>
+                                                        <b><p class = "first_from_amount"></p></b>
+                                                    </div>
                                                     <div class="divider2"></div>
                                                     <p><span class="text-left"><b>Total</b></span><span class="text-right total_bal"><b></b></span></p>
                                                 </div>
@@ -352,6 +356,10 @@
                                                     <div class="from-cost-center">
                                                         <p class="first_to_account"></p>
                                                         <b><p class = "first_to_amount"></p></b>
+                                                    </div>
+                                                    <div class="from-cost-center" id="append_name_value">
+                                                        <p class="second_to_account"></p>
+                                                        <b><p class = "second_to_amount"></p></b>
                                                     </div>
                                                     <div class="divider2"></div>
                                                     <p><span class="text-left"><b>Total</b></span><span class="text-right total_to_bal"><b></b></span></p>
@@ -699,6 +707,12 @@ foreach ($newtemp as $newtemp_val){
                 $(".first_to_account").html($(".fromaccount_second").val());
                 $(".first_to_amount").html("$"+$("#toamount_second").val());
                 $(".total_to_bal").html("$"+fromamount1);
+                $(".fromaccountloop").each(function() {
+                    var amount_value = "$"+$("#toamount_second").val();
+                    var amount_name = $(this).val();
+                    var html_for_add = "<div class='from-cost-center'><p class='second_to_account'>"+amount_name+"</p><b><p class='second_to_amount'>"+amount_value+"</p></b></div>";
+                    $('#append_name_value').append(html_for_add);
+                });
             }
 
             var toamount1 = $(".toamount").val();
@@ -710,6 +724,13 @@ foreach ($newtemp as $newtemp_val){
                 $(".first_account").html($(".fromaccount_second").val());
                 $(".first_amount").html("$"+toamount2);
                 $(".total_bal").html("$"+toamount1);
+
+                $(".fromaccountloop").each(function() {
+                    var amount_value = "$"+$("#fromamount_second").val();
+                    var amount_name = $(this).val();
+                    var html_for_add = "<div class='from-cost-center'><p class='first_from_amount'>"+amount_name+"</p><b><p class='first_from_account'>"+amount_value+"</p></b></div>";
+                    $('#append_name_value_from').append(html_for_add);
+                });
 
             }
 
