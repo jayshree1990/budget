@@ -752,6 +752,7 @@ foreach ($newtemp as $newtemp_val) {
             $(".first_amount").html("$" + $(".fromamount").val());
             $(".total_bal").html("$" + $(".fromamount").val());
         });
+
         $(".toamount").blur(function () {
             var from_val = $(".toamount").val();
             $("#fromamount_second").val(from_val);
@@ -789,7 +790,7 @@ foreach ($newtemp as $newtemp_val) {
             if(($("#initiator").val() == ''))
             {
                 flag = 1;
-                $('.step-one-initiator').html('This Feild Is Required').css({'color' : 'red'});
+                $('.step-one-initiator').html('This Field Is Required').css({'color' : 'red'});
             }
             if(flag ==1)
             {
@@ -819,16 +820,13 @@ foreach ($newtemp as $newtemp_val) {
             var flag_two = 0;
             if($(".fromaccount_one").val() == '' ) {
                 flag_two = 1;
-                $('.step-two-account-one').html('This Feild Is Required').css({'color': 'red'});
+                $('.step-two-account-one').html('This Field Is Required').css({'color': 'red'});
                 //return false;
             }
-//            else if($("#toamount_second").val() == ''){
-//                $('.step-two-fromamount').html('This Feild Is Required').css({'color' : 'red'});
-//                return false;
-//            }
+//
             if($(".fromaccount_second").val() == '' ) {
                 flag_two = 1;
-                $('.step-two-account-two').html('This Feild Is Required').css({'color': 'red'});
+                $('.step-two-account-two').html('This Field Is Required').css({'color': 'red'});
                 //return false;
             }
             if(flag_two == 1)
@@ -842,9 +840,6 @@ foreach ($newtemp as $newtemp_val) {
             }
         });
         /* On Second Click Code Ends Here */
-
-
-
 
         /*  START add for disable enable from and to */
         $("#from").click(function () {
