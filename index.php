@@ -304,10 +304,10 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group first">
                                                             <label>Account</label>
-                                                            <input type="text" class="form-control fromaccount"
-                                                                   id="fromaccount" name="fromaccount[]" value=""
+                                                            <input type="text" class="form-control fromaccount fromaccount_one"
+                                                                   id="fromaccount" name="fromaccount[]" value="<?php echo $data[1]; ?>"
                                                                    placeholder="Select Account from table or search">
-                                                            <div class="step-two-account"></div>
+                                                            <div class="step-two-account-one"></div>
 
                                                         </div>
                                                     </div>
@@ -343,7 +343,7 @@
                                                                        class="form-control fromaccount fromaccount_second"
                                                                        id="fromaccount" name="fromaccount[]" value=""
                                                                        placeholder="Select Account from table or search">
-                                                                <div class="step-two-fromamount1"></div>
+                                                                <div class="step-two-account-two"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 amount-div">
@@ -805,17 +805,34 @@ foreach ($newtemp as $newtemp_val) {
         /* On First Click Code Ends Here */
 
         /* On Second Click Code Starts Here */
+        $('#fromaccount').on('change',function () {
+            if($('#fromaccount_one').val() != '') {
+                $('.step-two-account-one').html('');
+            }
+        });
+        $('.fromaccount_second').on('change',function () {
+            if($('#fromaccount_second').val() != '') {
+                $('.step-two-account-two').html('');
+            }
+        });
         $("#second_next").click(function () {
+            var flag_two = 0;
+            if($(".fromaccount_one").val() == '' ) {
+                flag_two = 1;
+                $('.step-two-account-one').html('This Feild Is Required').css({'color': 'red'});
+                //return false;
+            }
+//            else if($("#toamount_second").val() == ''){
+//                $('.step-two-fromamount').html('This Feild Is Required').css({'color' : 'red'});
+//                return false;
+//            }
             if($(".fromaccount_second").val() == '' ) {
-                $('.step-two-account').html('This Feild Is Required').css({'color': 'red'});
-                return false;
+                flag_two = 1;
+                $('.step-two-account-two').html('This Feild Is Required').css({'color': 'red'});
+                //return false;
             }
-            else if($("#toamount_second").val() == ''){
-                $('.step-two-fromamount').html('This Feild Is Required').css({'color' : 'red'});
-                return false;
-            }
-            else if($(".fromaccount_second").val() == '' ) {
-                $('.step-two-account1').html('This Feild Is Required').css({'color': 'red'});
+            if(flag_two == 1)
+            {
                 return false;
             }
             else{
@@ -829,42 +846,20 @@ foreach ($newtemp as $newtemp_val) {
 
 
 
-    /*  START add for disable enable from and to */
-    $("#from").click(function () {
-        $('#fromamount_second').prop('disabled', true);
-        $('#toamount').prop('disabled', true);
-        $('.total_to_text').hide();
+        /*  START add for disable enable from and to */
+        $("#from").click(function () {
+            $('#fromamount_second').prop('disabled', true);
+            $('#toamount').prop('disabled', true);
+            $('.total_to_text').hide();
+        });
+        $("#toamount").click(function () {
+            $('#toamount_second').prop('disabled', true);
+            $('#from').prop('disabled', true);
+            $('.total_from_text').hide();
+        });
+        /*  End add for disable enable from and to */
+
     });
-    $("#toamount").click(function () {
-        $('#toamount_second').prop('disabled', true);
-        $('#from').prop('disabled', true);
-        $('.total_from_text').hide();
-    });
-    /*  End add for disable enable from and to */
-    })
-    ;
-
-
-    //$(document).ready(function () {
-    //        $("#transaction-form-step-one").validate({
-    //            rules: {
-    //                "initiator": {
-    //                    required: true,
-    //                }
-    //            },
-    //            messages: {
-    //                "initiator": {
-    //                    required: "Please, enter a name"
-    //                }
-    //            },
-    //            submitHandler: function (form) { // for demo
-    //                alert('valid form submitted'); // for demo
-    //                return false; // for demo
-    //            }
-    //        });
-
-    // });
-
 
 </script>
 </body>
