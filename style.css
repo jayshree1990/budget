@@ -918,5 +918,8 @@ td .loss {
 .btn.btn-default.share {
 	margin-left: -63px;
 }
-.marginLEFT{margin-left:410px;}
+.marginLEFT{margin-left:400px;}
 .ui-front {z-index: 99999 !important;}
+.col-md-6.total_to_text {
+	position: absolute;
+}

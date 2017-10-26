@@ -44,18 +44,21 @@
    
    bindDatePicker();
 
-   //--menu toggle script----//
-	 $(".menu-toggle").click(function(e) {
+     //--menu toggle script----//
+     $(".menu-toggle").click(function(e) {
          e.preventDefault();
          $(".table").width("100%").removeClass('marginLEFT');
          $("#wrapper-filter").removeClass("toggled");
          $("#wrapper").toggleClass("toggled");
          if($('#wrapper').hasClass("toggled")==true){
              var bsContainerWidth =$( window ).width();
-             if (bsContainerWidth = 1580)
-                 $(".table").width("71%");
-             else
-                 $(".table").width("66%");
+             if (bsContainerWidth == '1440')
+                 $(".table").width("69.4%");
+             else if(bsContainerWidth == '1520')
+                 $(".table").width("74%");
+             else {
+                 $(".table").width("62%");
+             }
              $(".right-sidebar").width("100%");
          }else {
              $(".table").width("100%");
@@ -67,7 +70,14 @@
          $("#wrapper").removeClass('toggled');
          $("#wrapper-filter").toggleClass("toggled");
          if($('#wrapper-filter').hasClass("toggled")==true){
-             $(".table").width("71%").addClass('marginLEFT');
+             var bsContainerWidth =$( window ).width();
+             if (bsContainerWidth == '1440')
+                 $(".table").width("68%").addClass('marginLEFT');
+             else if(bsContainerWidth == '1520')
+                 $(".table").width("70%").addClass('marginLEFT');
+             else {
+                 $(".table").width("65%").addClass('marginLEFT');
+             }
              $(".left-sidebar").width("100%");
          }else {
              $(".table").width("100%").removeClass('marginLEFT');
