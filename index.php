@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -208,8 +208,8 @@
                                 <td>
                                     <div class="sidebar-top">
                                         <li>
-                                            <span class="glyphicon glyphicon-remove cancle cancle"></span>
-                                            <p>Cancle</p>
+                                            <span class="glyphicon glyphicon-remove cancle cancle" id="right_bar"></span>
+                                            <p>Cancel</p>
                                         </li>
                                         <li>
                                             <span class="fa fa-floppy-o file draft" aria-hidden="true"></span>
@@ -308,7 +308,7 @@
                                                         </div>
                                                         <div class="col-md-12">
                                                             <p><b>Adjust remaining balance</b></p>
-                                                            <p class="remain_balance"></p>
+                                                            <p class="remain_balance" id="remain_balance"></p>
                                                         </div>
                                                         <div class="devider"></div>
                                                         <div class="col-md-12">
@@ -386,7 +386,7 @@
                                                 </div>
                                                 <div class="col-md-12 nopadding margin-top-20"><p>All Changes Saved</p></div>
                                                 <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu1" class="btn btn-default previous">Previous</a></div>
-                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next">Next</a></div>
+                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next" id="submit_adj">Submit Adjustment</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -702,6 +702,8 @@ foreach ($newtemp as $newtemp_val){
             $('#from').prop('disabled',true);
             $('.total_from_text').hide();
         });
+
+
         /*  End add for disable enable from and to */
     });
 </script>

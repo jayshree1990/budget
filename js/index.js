@@ -84,6 +84,16 @@
          }
      });
 
+     $('#submit_adj').click(function(){
+         var remain_balance = document.getElementById("remain_balance").innerHTML;
+         $('#cost').find('.table').append('<tr><td>Test</td><td>$0.00 </td><td>$0.00 </td><td>$0.00 </td><td>$0.00 </td><td> '+ remain_balance +'</td><td>0%</td><td></td></tr>');
+     });
+
+     $('#right_bar').click(function(){
+         $('#wrapper').removeClass('toggled');
+         $('.table').width('100%');
+     });
+
      //---- Text-Box Enable And Disable Code Starts Here ----
      $("body").delegate(".fromamount", "click", function(){
          $(this).closest('.amount-div').find('.toamount').attr('readonly', true);
