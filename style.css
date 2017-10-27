@@ -920,9 +920,10 @@ td .loss {
 }
 .marginLEFT{margin-left:400px;}
 .ui-front {z-index: 99999 !important;}
-.col-md-6.total_to_text {
-	position: absolute;
-}
 .divider2 {
 	float: none;
+}
+
+.lableError{
+	color: red;
 }

@@ -230,15 +230,19 @@
                                             <div class="tab1-content">
                                                 <h4> Transaction Details</h4>
                                                 <p>Enter the transaction details to initiate<br/> a budget adjustments</p>
-                                                <form role="form" class="transaction-form">
+                                                <form role="form" class="transaction-form " id="transaction-form-one">
                                                     <div class="form-group">
-                                                        <label>Transaction Date *</label>
+                                                        <label>Transaction Date <span class="lableError">*</span></label>
                                                         <div class="input-group date" id="datetimepicker">
                                                             <input class="form-control" placeholder="dd/mm/yyyy" value="" type="text" id="transaction_date">
-                                                            <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span></div></div>
+                                                            <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span></div>
+                                                        <div class="step-one-date"></div>
+
+                                                    </div>
                                                     <div class="form-group">
-                                                        <label>Initiator *</label>
+                                                        <label>Initiator <span class="lableError">*</span></label>
                                                         <input class="form-control" placeholder="Responsible Person" type="text" id="initiator">
+                                                        <div class="step-one-initiator"></div>
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Reason </label>
@@ -258,7 +262,8 @@
                                                     <div class="col-sm-12">
                                                         <div class="form-group first">
                                                             <label>Account</label>
-                                                            <input type="text" class="form-control fromaccount" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
+                                                            <input type="text" class="form-control fromaccount fromaccount_one" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
+                                                            <div class="step-two-account-one"></div>
 
                                                         </div>
                                                     </div>
@@ -267,16 +272,18 @@
                                                             <div class="form-group">
                                                                 <label>From amount</label>
 
-                                                                <input type="text" class="form-control fromamount" id="from" name="from[]" value="" placeholder="From amount">
+                                                                <input type="number" class="form-control fromamount" id="from" name="from[]" value="" placeholder="From amount">
                                                             </div>
+                                                            <div class="step-two-amount-one"></div>
                                                         </div>
                                                         <div class="col-sm-6">
                                                             <div class="form-group">
                                                                 <label>To</label>
                                                                 <div class="form-group">
 
-                                                                    <input type="text" class="form-control toamount" id="toamount" name="toamount[]" value="" placeholder="To amount">
+                                                                    <input type="number" class="form-control toamount" id="toamount" name="toamount[]" value="" placeholder="To amount">
                                                                 </div>
+                                                                <div class="step-two-toamount-one"></div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -285,7 +292,7 @@
                                                             <div class="form-group first">
                                                                 <label>Account</label>
                                                                 <input type="text" class="form-control fromaccount fromaccount_second" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
-
+                                                                <div class="step-two-account-two"></div>
                                                             </div>
                                                         </div>
                                                         <div class="col-sm-12 amount-div">
@@ -294,6 +301,7 @@
                                                                     <label>From amount</label>
                                                                     <input type="text" class="form-control fromamount" id="fromamount_second" name="from[]" value="" placeholder="From amount">
                                                                 </div>
+                                                                <div class="step-two-amount-next"></div>
                                                             </div>
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
@@ -373,7 +381,7 @@
                                                         <div class="col-md-6 nopadding"><b>Initiator</b><br /><div class="initiator_text"></div></div>
                                                     </div>
                                                     <div class="transaction-date">
-                                                        <div class="col-md-12 nopadding"><b>Reason</b><br /><div class="reason_text"></div></div>
+                                                        <div class="col-md-12 nopadding reason_label"><b>Reason</b><br /><div class="reason_text"></div></div>
                                                     </div>
                                                 </div>
                                                 <div class="attachment col-md-12 nopadding">
@@ -647,7 +655,7 @@ foreach ($newtemp as $newtemp_val){
         divtest.innerHTML = '<div class="col-sm-12">' +
             '<div class="form-group">' +
             '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields(' + room + ');"> </span></label> ' +
-            '<input type="text" class="form-control fromaccount fromaccountloop" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
+            '<input type="text" class="form-control fromaccount fromaccountloop" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +'<div class="step-two-account-loop"></div>'+
             '</div></div>' +
             '<div class="col-sm-12 amount-div">' +
             '<div class="col-sm-6 ">' +
@@ -660,6 +668,12 @@ foreach ($newtemp as $newtemp_val){
             '<input type="text" class="form-control toamount toamountloop" id="toamount1" name="toamount[]" value="'+finalval_data1+'" placeholder="To amount">' +
             '</div></div></div>';
         objTo.appendChild(divtest)
+
+        $('.fromaccount').on('change',function () {
+            if($('.fromaccountloop').val() != '') {
+                $('.step-two-account-loop').html('');
+            }
+        });
     }
     var rid = 1;
     function remove_education_fields(rid) {
@@ -700,7 +714,6 @@ foreach ($newtemp as $newtemp_val){
             '</div></div></div>';
     }
 
-
     $(document).ready(function(){
         $(".fromamount").blur(function(){
             var from_val = $(".fromamount").val();
@@ -732,62 +745,6 @@ foreach ($newtemp as $newtemp_val){
                 }
             }
         });
-        $("#second_next").click(function(){
-            var fromaccount1 = $("#fromaccount").val();
-            var fromamount1 = $(".fromamount").val();
-            if(fromamount1 != ''){
-                $(".first_account").html(fromaccount1);
-                $(".first_amount").html("$"+fromamount1);
-                $(".total_bal").html("$"+fromamount1);
-                $(".first_to_account").html($(".fromaccount_second").val());
-                $(".first_to_amount").html("$"+$("#toamount_second").val());
-                $(".total_to_bal").html("$"+fromamount1);
-                $(".fromaccountloop").each(function() {
-                    var amount_value = "$"+$("#toamount_second").val();
-                    var amount_name = $(this).val();
-                    var html_for_add = "<div class='from-cost-center'><p class='second_to_account'>"+amount_name+"</p><b><p class='second_to_amount'>"+amount_value+"</p></b></div>";
-                    $('#append_name_value').append(html_for_add);
-                });
-            }
-
-            var toamount1 = $(".toamount").val();
-            var toamount2 = $("#fromamount_second").val();
-            if(toamount1 != ''){
-                $(".first_to_account").html(fromaccount1);
-                $(".first_to_amount").html("$"+toamount1);
-                $(".total_to_bal").html("$"+toamount1);
-                $(".first_account").html($(".fromaccount_second").val());
-                $(".first_amount").html("$"+toamount2);
-                $(".total_bal").html("$"+toamount1);
-
-                $(".fromaccountloop").each(function() {
-                    var amount_value = "$"+$("#fromamount_second").val();
-                    var amount_name = $(this).val();
-                    var html_for_add = "<div class='from-cost-center'><p class='first_from_amount'>"+amount_name+"</p><b><p class='first_from_account'>"+amount_value+"</p></b></div>";
-                    $('#append_name_value_from').append(html_for_add);
-                });
-
-            }
-
-        });
-        $("#first_next").click(function () {
-            $(".transcation_date_text").html($("#transaction_date").val());
-            $(".initiator_text").html($("#initiator").val());
-            $(".reason_text").html($("#reason").val());
-        });
-
-        /*  START add for disable enable from and to */
-        $("#from").click(function(){
-            $('#fromamount_second').prop('disabled', true);
-            $('#toamount').prop('disabled',true);
-            $('.total_to_text').hide();
-        });
-        $("#toamount").click(function(){
-            $('#toamount_second').prop('disabled', true);
-            $('#from').prop('disabled',true);
-            $('.total_from_text').hide();
-        });
-        /*  End add for disable enable from and to */
     });
 </script>
 </body>
