@@ -923,7 +923,7 @@ td .loss {
 .divider2 {
 	float: none;
 }
-
 .lableError{
 	color: red;
 }
+#left_bar{padding:2%;}
