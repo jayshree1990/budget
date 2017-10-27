@@ -661,8 +661,43 @@ foreach ($newtemp as $newtemp_val){
             '</div></div></div>';
         objTo.appendChild(divtest)
     }
+    var rid = 1;
     function remove_education_fields(rid) {
         $('.removeclass'+rid).remove();
+        rid--;
+        var  finalval_data1 = '';
+        var  finalval_data2 = '';
+        var from_val_first = $("#from").val();
+        var to_val_first = $("#toamount").val();
+        if(from_val_first != ''){
+            finalval_data1 = from_val_first/rid;
+            $("#toamount_second").val(finalval_data1);
+            $(".toamountloop").val(finalval_data1);
+            $(".fromamountloop").prop('disabled', true);
+
+        }
+        else if(to_val_first != ''){
+            finalval_data2 = to_val_first/rid;
+            $("#fromamount_second").val(finalval_data2);
+            $(".fromamountloop").val(finalval_data2);
+            $(".toamountloop").prop('disabled', true);
+        }
+        var rdiv = 'removeclass' + rid;
+        divtest.innerHTML = '<div class="col-sm-12">' +
+            '<div class="form-group">' +
+            '<label>Account <span class="glyphicon glyphicon-minus-sign removecls" onclick="remove_education_fields(' + room + ');"> </span></label> ' +
+            '<input type="text" class="form-control fromaccount fromaccountloop" id="account" name="account[]" value="" placeholder="Select Account from table or search">' +
+            '</div></div>' +
+            '<div class="col-sm-12 amount-div">' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            '<label>From</label> ' +
+            '<input type="text" class="form-control fromamount fromamountloop" id="from1" name="from[]" value="'+finalval_data2+'" placeholder="From amount"></div></div>' +
+            '<div class="col-sm-6 ">' +
+            '<div class="form-group">' +
+            ' <label>To</label>' +
+            '<input type="text" class="form-control toamount toamountloop" id="toamount1" name="toamount[]" value="'+finalval_data1+'" placeholder="To amount">' +
+            '</div></div></div>';
     }
 
 
