@@ -242,13 +242,13 @@
      });
 
      /*  START add for disable enable from and to */
-     $("#from").click(function(){
+     $( "#from" ).focus(function() {
          $('#fromamount_second').prop('disabled', true);
          $('#toamount').prop('disabled',true);
          $('.total_to_text').hide();
          $(".fromamountloop").prop('disabled',true);
      });
-     $("#toamount").click(function(){
+     $("#toamount").focus(function(){
          $('#toamount_second').prop('disabled', true);
          $('#from').prop('disabled',true);
          $('.total_from_text').hide();

@@ -321,7 +321,7 @@
                                                         <div class="devider"></div>
                                                         <div class="col-md-12">
                                                             <div class="add-acount">
-                                                                <span class="glyphicon glyphicon-plus-sign" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
+                                                                <span class="glyphicon glyphicon-plus-sign add_new_account" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
                                                             </div>
                                                         </div>
                                                         <div class="divide3"></div>
@@ -631,6 +631,15 @@ foreach ($newtemp as $newtemp_val){
     <!-- Auto suggestion Code Ends Here -->
     var room = 1;
     function education_fields() {
+        var fromaccount = $("#fromaccount").val();
+        if(fromaccount == ''){
+            $("#fromaccount").focus();
+            return false;
+        }
+        else if($("#from").val() == ''){
+            $("#from").focus();
+            return false;
+        }
         room++;
        var  finalval_data1 = '';
         var  finalval_data2 = '';
@@ -674,6 +683,15 @@ foreach ($newtemp as $newtemp_val){
             if($('.fromaccountloop').val() != '') {
                 $('.step-two-account-loop').html('');
             }
+        });
+        $('.fromaccountloop').focus(function () {
+            if(from_val_first != ''){
+                $(".fromamountloop").prop('disabled', true);
+            }
+            else if(to_val_first != ''){
+                $(".toamountloop").prop('disabled', true);
+            }
+
         });
     }
     var rid = 1;
