@@ -161,8 +161,8 @@
                         <table class="table table-bordered left-sidebar">
                             <tr>
                                 <div class="Rectangle-3">
+                                    <span class="glyphicon glyphicon-remove cancel cancel" id="left_bar"></span>
                                     <h4 style="margin:20px;text-align:center">Saved Selection Criterias</h4>
-
 
                                     <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;"
                                        role="button">select criteria<span
@@ -237,8 +237,8 @@
                                 <td>
                                     <div class="sidebar-top">
                                         <li>
-                                            <span class="glyphicon glyphicon-remove cancle cancle"></span>
-                                            <p>Cancle</p>
+                                            <span class="glyphicon glyphicon-remove cancle cancle" id="right_bar"></span>
+                                            <p>Cancel</p>
                                         </li>
                                         <li>
                                             <span class="fa fa-floppy-o file draft" aria-hidden="true"></span>
@@ -368,7 +368,7 @@
                                                         </div>
                                                         <div class="col-md-12">
                                                             <p><b>Adjust remaining balance</b></p>
-                                                            <p class="remain_balance"></p>
+                                                            <p class="remain_balance" id="remain_balance"></p>
                                                         </div>
                                                         <div class="devider"></div>
                                                         <div class="col-md-12">
@@ -468,8 +468,7 @@
                                                 <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu1"
                                                                                     class="btn btn-default previous">Previous</a>
                                                 </div>
-                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu2"
-                                                                                    class="btn btn-info btn-lg next">Next</a>
+                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next" id="submit_adj">Submit Adjustment</a></div>
                                                 </div>
                                             </div>
                                         </div>

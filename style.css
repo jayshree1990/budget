@@ -924,6 +924,8 @@ td .loss {
 	position: absolute;
 }
 
+#left_bar{padding:2%;}
+
 .lableError{
 	color: red;
 }
