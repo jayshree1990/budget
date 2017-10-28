@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ellucian University</title>
     <!--Link Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -129,9 +130,9 @@
                     <div class="col-md-12">
                         <div class="main-menu">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a data-toggle="tab" href="#cost">My Cost Centers</a></li>
-                                <li><a data-toggle="tab" href="#object">Object View</a></li>
-                                <li><a data-toggle="tab" href="#budget">Budget Ajdustment</a></li>
+                                <li class="my_cost_tab active"><a data-toggle="tab" href="#cost">My Cost Centers</a></li>
+                                <li class ="object_view_tab"><a data-toggle="tab" href="#object">Object View</a></li>
+                                <li class="badge_adj_tab"><a data-toggle="tab" href="#budget">Budget Ajdustment</a></li>
                             </ul>
                         </div>
                     </div>
@@ -150,39 +151,35 @@
                         <table class="table table-bordered left-sidebar">
                             <tr>
                                 <div class="Rectangle-3">
-                                    <span class="glyphicon glyphicon-remove cancel cancel" id="left_bar"></span>
-                                    <h4 style="margin:20px;text-align:center">Saved Selection Criterias</h4>
-
-
-                                    <a href="#" class="btn btn-default current-date" style="width:80%;margin:10px;" role="button">select criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
-
+                                    <p style="font-size:18px;padding-top:2%;padding-left:15%;">Saved Selection Criterias</p>
+                                    <a href="#" class="btn btn-default current-date" style="width:80%;margin-right:5%;" role="button">Select Criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
                                     <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
 
                                 </div>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left " style="width:100%;" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left " style="width:100%;" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left" style="width:100%;" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left " style="width:100%;" role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn  align_left " style="width:100%;" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn  align_left" style="width:100%;" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" style="margin-left:1%"></span></a>
+                                <a href="#" class="btn align_left" style="width:100%;" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" style="margin-left:1%"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn btn-default current-date" style="width:100%;" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " style="margin-left:1%"></span></a>
+                                <a href="#" class="btn align_left" style="width:100%;" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " style="margin-left:1%"></span></a>
                             </tr>
                             <tr>
                                 <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;width:80%;" role="button" >Apply Filters</a>
@@ -213,8 +210,8 @@
                                             <p>Cancel</p>
                                         </li>
                                         <li>
-                                            <span class="fa fa-floppy-o file draft" aria-hidden="true"></span>
-                                            <p>Save Draft</p>
+                                            <a data-toggle="tab" id="save_draft" href="#budget" aria-expanded="true"><span class="fa fa-floppy-o file draft" aria-hidden="true"></span></a>
+                                            <p><span class ="save_draft"><a data-toggle="tab" id="save_draft" href="#budget" aria-expanded="true">Save Draft</a></span></p>
                                         </li>
                                         <li>
                                             <span class="glyphicon glyphicon-pencil draft"></span>
@@ -246,8 +243,9 @@
                                                         <div class="step-one-initiator"></div>
                                                     </div>
                                                     <div class="form-group">
-                                                        <label>Reason </label>
-                                                        <input class="form-control" placeholder="Reason For Adjustment" type="text" id="reason">
+                                                        <label>Reason <span class="lableError">*</span></label>
+                                                            <input class="form-control" placeholder="Reason For Adjustment" type="text" id="reason">
+                                                        <div class="step-one-reason"></div>
                                                     </div>
                                                     <div class="form-group submit-next">
                                                         <label>All Changes Saved </label>
@@ -346,7 +344,7 @@
                                         </div>
                                         <div id="menu2" class="tab-pane fade">
                                             <div class="tab1-content">
-                                                <p><b>Budget Journal Number</b> B003453</p>
+                                                <p><b>Budget Journal Number</b><span id="journal_num">B003453</span></p>
                                                 <div class="from-box border-1 col-md-12">
                                                     <p><b>From</b></p>
                                                     <div class="from-cost-center">
@@ -402,7 +400,7 @@
                                                 </div>
                                                 <div class="col-md-12 nopadding margin-top-20"><p>All Changes Saved</p></div>
                                                 <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu1" class="btn btn-default previous">Previous</a></div>
-                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#menu2" class="btn btn-info btn-lg next" id="submit_adj">Submit Adjustment</a></div>
+                                                <div class="col-md-12 nopadding"><a data-toggle="tab" href="#budget" class="btn btn-info btn-lg next" id="submit_adj">Submit Adjustment</a></div>
                                             </div>
                                         </div>
                                     </div>
@@ -539,47 +537,16 @@
                             <div class="col-md-12 table-responsive pading-top">
                                 <table class="table">
                                     <thead>
-                                    <tr>
-                                        <td>Cost center</td>
-                                        <td>Budget Revenue</td>
-                                        <td>Actual Revenue</td>
-                                        <td>Budgeted Expenses</td>
-                                        <td>Actual and Encumbrances</td>
-                                        <td>Remaining Expenses</td>
-                                        <td>% Spent</td>
-                                        <td>Financial Health</td>
+                                    <tr class="budget_row">
+                                        <td>Journal Number</td>
+                                        <td>Date</td>
+                                        <td>Description/Reason</td>
+                                        <td>Amount</td>
+                                        <td>Status</td>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology: Travel</span></td>
-                                        <td>$12,000.00</td>
-                                        <td>$9,453.45</td>
-                                        <td></td>
-                                        <td>$3,546.55</td>
-                                        <td>$3,546.55</td>
-                                        <td>27%</td>
-                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10518-55085<br/><span>Biology: Travel</span></td>
-                                        <td>$5,000.00</td>
-                                        <td>$5,100.00</td>
-                                        <td></td>
-                                        <td><span class="loss">-$100.00</span></td>
-                                        <td><span class="loss">-$100.00</span></td>
-                                        <td><span class="loss">-2%</span></td>
-                                        <td><span class="glyphicon glyphicon-exclamation-sign excl"></span></td>
-                                    </tr>
-                                    <tr>
-                                        <td scope="row"><span class="plus glyphicon glyphicon-plus-sign"></span>11-01-01-00-10506-55085<br/><span>Biology Travel</span></td>
-                                        <td>$12,000.00</td>
-                                        <td>$9,453.45</td>
-                                        <td></td>
-                                        <td>$3,546.55</td>
-                                        <td>-$100.00</td>
-                                        <td>27%</td>
-                                        <td><span class="glyphicon glyphicon-ok-sign profit"></span></td>
                                     </tr>
                                     </tbody>
                                 </table>

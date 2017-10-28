@@ -574,7 +574,6 @@ td .loss {
 	/*width: 320px;*/
 	height: 200px;
 	background-color: #e2e2e2;
-	border:1px solid black;
 }
 .Rectangle-65-Copy {
 	width: 280px;
@@ -642,7 +641,7 @@ td .loss {
 	transition: all 0.5s ease;
 	z-index: 999;
 	top: 70px;
-
+	border:1px solid #b9b9b9;
 }
 
 #wrapper-sidebar{
@@ -907,12 +906,6 @@ td .loss {
 .btn.btn-default.share{
 	margin-left:50px;
 }
-.btn.btn-default.current-date{
-	margin-top:16px;
-}
-#wrapper-filter.toggled #sidebar-wrapper-filter{
-	margin:16px 0 0 10px;
-}
 .pading-top{width:115em;}
 
 .btn.btn-default.share {
@@ -927,4 +920,11 @@ td .loss {
 	color: red;
 }
 #left_bar{padding:2%;}
-.btn.btn-info.btn-lg.filter {margin: 2% 0px 0px 78px !important;}
+
+
+#sidebar-wrapper{	top:122px;}
+.align_left { text-align:left;	color:#275b3f !important;	border-bottom: 1px solid #bdbdbd;	padding:3%;}
+#sidebar-wrapper-filter .btn btn-default{text-align:left !important ;}
+.glyphicon-chevron-down{float: right;}
+#sidebar-wrapper-filter{left:4%;}
+#sidebar-wrapper-filter{top:85px;}

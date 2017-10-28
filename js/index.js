@@ -57,7 +57,7 @@
              else if(bsContainerWidth == '1520')
                  $(".table").width("74%");
              else {
-                 $(".table").width("62%");
+                 $(".table").width("64%");
              }
              $(".right-sidebar").width("100%");
          }else {
@@ -85,7 +85,24 @@
      });
      $('#submit_adj').click(function(){
          var remain_balance = document.getElementById("remain_balance").innerHTML;
-         $('#cost').find('.table').append('<tr><td>Test</td><td>$0.00 </td><td>$0.00 </td><td>$0.00 </td><td>$0.00 </td><td> '+ remain_balance +'</td><td>0%</td><td></td></tr>');
+         var journal_num = 'B003453';
+         var transaction_date = $("#transaction_date").val();
+         var reason = $("#reason").val();
+         $('#budget').find('.table').append('<tr><td>'+journal_num+'</td><td>'+transaction_date+'</td><td>'+reason+'</td><td> '+ remain_balance +'</td><td><button type="button" class="btn btn-success">Complete</button></td></tr>');
+         $(".my_cost_tab").removeClass('active');
+         $(".badge_adj_tab").addClass('active');
+         $('.budget_row').focus();
+     });
+     $('#save_draft').click(function(){
+         var remain_balance = document.getElementById("remain_balance").innerHTML;
+         var journal_num = 'B003453';
+         var transaction_date = $("#transaction_date").val();
+         var reason = $("#reason").val();
+         $('#budget').find('.table').append('<tr><td></td><td>'+transaction_date+'</td><td>'+reason+'</td><td> '+ remain_balance +'</td><td><button type="button" class="btn btn-warning">Draft</button></td></tr>');
+         $(".my_cost_tab").removeClass('active');
+         $(".badge_adj_tab").addClass('active');
+
+
      });
 
      $('#right_bar').click(function(){
@@ -211,6 +228,11 @@
              $('.step-one-initiator').html('');
          }
      });
+     $('#reason').on('keyup',function () {
+         if($('#reason').val() != '') {
+             $('.step-one-reason').html('');
+         }
+     });
      $("#first_next").click(function () {
          var flag = 0;
          if(($("#transaction_date").val() == ''))
@@ -222,6 +244,11 @@
          {
              flag = 1;
              $('.step-one-initiator').html('This Field Is Required').css({'color' : 'red'});
+         }
+         if(($("#reason").val() == ''))
+         {
+             flag = 1;
+             $('.step-one-reason').html('This Field Is Required').css({'color' : 'red'});
          }
          if(flag ==1)
          {
