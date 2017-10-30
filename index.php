@@ -2,7 +2,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"> <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ellucian University</title>
     <!--Link Bootstrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -139,11 +138,26 @@
                 </div>
 
             </header>
-            <div class="before_table col-md-9">
-                <div class="filter">
+            <div class="col-md-12 row" style="margin-left:2%;" >
+                <div class="col">
                     <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
-                    <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
                 </div>
+                <div class="col">
+
+                </div>
+                <div class="col">
+
+                    <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
+
+                </div>
+
+                <div class="col">
+                    <a href="#" class="btn btn-default share" role="button"><span class=" glyphicon glyphicon-share"></span></a>
+                    <a href="#menu-toggle" class="btn btn-info btn-lg adjustment menu-toggle" role="button">Budget Adjustment</a>
+                </div>
+            </div>
+            <div class="before_table col-md-9">
+
                 <div id="wrapper-filter">
 
                     <!-- Sidebar -->
@@ -151,6 +165,7 @@
                         <table class="table table-bordered left-sidebar">
                             <tr>
                                 <div class="Rectangle-3">
+                                    <span class="glyphicon glyphicon-remove cancel cancel" id="left_bar"></span>
                                     <p style="font-size:18px;padding-top:2%;padding-left:15%;">Saved Selection Criterias</p>
                                     <a href="#" class="btn btn-default current-date" style="width:80%;margin-right:5%;" role="button">Select Criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
                                     <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
@@ -193,10 +208,7 @@
                 </div>
             </div>
             <div class="col-md-4 te">
-                <div class="budget-adjustment col-md-9">
-                    <a href="#" class="btn btn-default share" role="button"><span class=" glyphicon glyphicon-share"></span></a>
-                    <a href="#menu-toggle" class="btn btn-info btn-lg adjustment menu-toggle" role="button">Budget Adjustment</a>
-                </div>
+
                 <div id="wrapper">
 
                     <!-- Sidebar -->
@@ -213,6 +225,7 @@
                                             <a data-toggle="tab" id="save_draft" href="#budget" aria-expanded="true"><span class="fa fa-floppy-o file draft" aria-hidden="true"></span></a>
                                             <p><span class ="save_draft"><a data-toggle="tab" id="save_draft" href="#budget" aria-expanded="true">Save Draft</a></span></p>
                                         </li>
+                                        </li>
                                         <li>
                                             <span class="glyphicon glyphicon-pencil draft"></span>
                                             <p>Select Draft</p>
@@ -228,15 +241,13 @@
                                             <div class="tab1-content">
                                                 <h4> Transaction Details</h4>
                                                 <p>Enter the transaction details to initiate<br/> a budget adjustments</p>
-                                                <form role="form" class="transaction-form " id="transaction-form-one">
+                                                <form role="form" class="transaction-form"  id="transaction-form-one">
                                                     <div class="form-group">
                                                         <label>Transaction Date <span class="lableError">*</span></label>
                                                         <div class="input-group date" id="datetimepicker">
                                                             <input class="form-control" placeholder="dd/mm/yyyy" value="" type="text" id="transaction_date">
-                                                            <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span></div>
-                                                        <div class="step-one-date"></div>
-
-                                                    </div>
+                                                            <span class="input-group-addon"> <span class="glyphicon glyphicon-calendar"></span></span></div></div>
+                                                    <div class="step-one-date"></div>
                                                     <div class="form-group">
                                                         <label>Initiator <span class="lableError">*</span></label>
                                                         <input class="form-control" placeholder="Responsible Person" type="text" id="initiator">
@@ -244,7 +255,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label>Reason <span class="lableError">*</span></label>
-                                                            <input class="form-control" placeholder="Reason For Adjustment" type="text" id="reason">
+                                                        <input class="form-control" placeholder="Reason For Adjustment" type="text" id="reason">
                                                         <div class="step-one-reason"></div>
                                                     </div>
                                                     <div class="form-group submit-next">
@@ -263,7 +274,6 @@
                                                             <label>Account</label>
                                                             <input type="text" class="form-control fromaccount fromaccount_one" id="fromaccount" name="fromaccount[]" value="" placeholder="Select Account from table or search">
                                                             <div class="step-two-account-one"></div>
-
                                                         </div>
                                                     </div>
                                                     <div class="col-sm-12 amount-div">
@@ -319,7 +329,7 @@
                                                         <div class="devider"></div>
                                                         <div class="col-md-12">
                                                             <div class="add-acount">
-                                                                <span class="glyphicon glyphicon-plus-sign add_new_account" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
+                                                                <span class="glyphicon glyphicon-plus-sign" onclick="education_fields();"> </span><span onclick="education_fields();">Add Another Account</span>
                                                             </div>
                                                         </div>
                                                         <div class="divide3"></div>
@@ -608,7 +618,7 @@ foreach ($newtemp as $newtemp_val){
             return false;
         }
         room++;
-       var  finalval_data1 = '';
+        var  finalval_data1 = '';
         var  finalval_data2 = '';
         var from_val_first = $("#from").val();
         var to_val_first = $("#toamount").val();
@@ -645,7 +655,6 @@ foreach ($newtemp as $newtemp_val){
             '<input type="text" class="form-control toamount toamountloop" id="toamount1" name="toamount[]" value="'+finalval_data1+'" placeholder="To amount">' +
             '</div></div></div>';
         objTo.appendChild(divtest)
-
         $('.fromaccount').on('change',function () {
             if($('.fromaccountloop').val() != '') {
                 $('.step-two-account-loop').html('');
@@ -699,6 +708,7 @@ foreach ($newtemp as $newtemp_val){
             '<input type="text" class="form-control toamount toamountloop" id="toamount1" name="toamount[]" value="'+finalval_data1+'" placeholder="To amount">' +
             '</div></div></div>';
     }
+
 
     $(document).ready(function(){
         $(".fromamount").blur(function(){
