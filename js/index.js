@@ -57,7 +57,7 @@
              else if(bsContainerWidth == '1520')
                  $(".table").width("74%");
              else {
-                 $(".table").width("62%");
+                 $(".table").width("63%");
              }
              $(".right-sidebar").width("100%");
          }else {
