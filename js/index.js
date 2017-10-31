@@ -88,10 +88,30 @@ $(function () {
         var journal_num = 'B003453';
         var transaction_date = $("#transaction_date").val();
         var reason = $("#reason").val();
-        $('#budget').find('.table').append('<tr><td>'+journal_num+'</td><td>'+transaction_date+'</td><td>'+reason+'</td><td> '+ remain_balance +'</td><td><button type="button" id="complete_button" class="btn btn-success">Complete</button></td></tr>');
+        var flag_adj =0;
+        if(transaction_date == ''){
+            flag_adj = 1;
+            alert("Please Fill Trasaction Date");
+        }
+        if(reason == ''){
+            flag_adj = 1;
+            alert("Please Fill Reason");
+        }
+        if(remain_balance == ''){
+            flag_adj = 1;
+            alert("Please Fill Account Details");
+        }
+        if( flag_adj == 1){
+            return false;
+        }
+        else {
+            $('#budget').find('.table').append('<tr><td>' + journal_num + '</td><td>' + transaction_date + '</td><td>' + reason + '</td><td> ' + remain_balance + '</td><td><button type="button" id="complete_button" class="btn btn-success">Complete</button></td></tr>');
+        }
         $(".my_cost_tab").removeClass('active');
         $(".badge_adj_tab").addClass('active');
-        $('.budget_row').focus();
+        $('body,html').animate({
+            scrollTop: 0
+        }, 800);
         $("#filter-button").hide();
         if(remain_balance == ''){
             $("#complete_button").hide();
@@ -102,13 +122,28 @@ $(function () {
         var journal_num = 'B003453';
         var transaction_date = $("#transaction_date").val();
         var reason = $("#reason").val();
-        $('#budget').find('.table').append('<tr><td></td><td>'+transaction_date+'</td><td>'+reason+'</td><td> '+ remain_balance +'</td><td><button type="button" id="draft_button" class="btn btn-warning">Draft</button></td></tr>');
+        var flag_draft =0;
+        if(transaction_date == ''){
+            flag_draft = 1;
+            alert("Please Fill Trasaction Date");
+        }
+        if(reason == ''){
+            flag_draft = 1;
+            alert("Please Fill Reason");
+        }
+        if(remain_balance == ''){
+            flag_draft = 1;
+            alert("Please Fill Account Details");
+        }
+        if( flag_draft == 1){
+            return false;
+        }
+        else{
+            $('#budget').find('.table').append('<tr><td></td><td>' + transaction_date + '</td><td>' + reason + '</td><td> ' + remain_balance + '</td><td><button type="button" id="draft_button" class="btn btn-warning">Draft</button></td></tr>');
+        }
         $(".my_cost_tab").removeClass('active');
         $(".badge_adj_tab").addClass('active');
         $("#filter-button").hide();
-        if(remain_balance == ''){
-            $("#draft_button").hide();
-        }
     });
     $(".object_view_tab").click(function () {
         $("#filter-button").show();
@@ -301,9 +336,17 @@ $(function () {
 
     $(function() {
         $(" tbody.mycost_body tr:not(.accordion)").hide();
-        $(" tr.accordion").click(function(){
+        $("  tbody.mycost_body tr.accordion").click(function(){
+            var x=$(this).find('span').attr('class');
+            if(x=='glyphicon glyphicon-plus-sign')
+            {
+                $(this).find('span:first').removeClass('glyphicon glyphicon-plus-sign').addClass('glyphicon glyphicon-minus-sign');
+            }
+            else
+            {
+                $(this).find('span:first').removeClass('glyphicon glyphicon-minus-sign').addClass('glyphicon glyphicon-plus-sign');
+            }
             $(this).nextUntil("tr.accordion").fadeToggle(500);
-        }).eq(0).trigger('click');
+        }).eq(n).trigger('click');
     });
-
 });

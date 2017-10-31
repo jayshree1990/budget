@@ -561,7 +561,7 @@
                                         while (($data_objectview = fgetcsv($handle, 1000, ",")) !== FALSE) {
                                             ?>
                                             <tr class="child_tr">
-                                                <td scope="row"><span class="glyphicon glyphicon-plus-sign"></span><?php echo $data[0]; ?><br/><span><?php echo $data_objectview[1]; ?></span>
+                                                <td scope="row"><?php echo $data[0]; ?><br/><span><?php echo $data_objectview[1]; ?></span>
                                                 </td>
                                                 <td><?php echo $data_objectview[2]; ?></td>
                                                 <td><?php echo $data_objectview[3]; ?></td>
