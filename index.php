@@ -138,22 +138,22 @@
                 </div>
 
             </header>
-            <div class="col-md-12 row" style="margin-left:2%;" >
-                <div class="col">
-                    <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
-                </div>
-                <div class="col">
-
-                </div>
-                <div class="col">
-
-                    <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
-
-                </div>
-
-                <div class="col">
-                    <a href="#" class="btn btn-default share" role="button"><span class=" glyphicon glyphicon-share"></span></a>
-                    <a href="#menu-toggle" class="btn btn-info btn-lg adjustment menu-toggle" role="button">Budget Adjustment</a>
+            <div class="col-md-12">
+                <div class="content">
+                    <div class="row">
+                        <div class="col">
+                            <a href="#" id="filter-button" class="btn btn-info btn-lg filter" role="button"><span class=" glyphicon glyphicon-glass"></span>Filter</a>
+                        </div>
+                        <div class="col" id="empty_col">
+                        </div>
+                        <div class="col">
+                            <a href="#" class="btn btn-default current-date" role="button">FY 2017<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                        </div>
+                        <div class="col">
+                            <a href="#" class="btn btn-default share" role="button"><span class=" glyphicon glyphicon-share"></span></a>
+                            <a href="#menu-toggle" class="btn btn-info btn-lg adjustment menu-toggle" role="button">Budget Adjustment</a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="before_table col-md-9">
@@ -166,42 +166,42 @@
                             <tr>
                                 <div class="Rectangle-3">
                                     <span class="glyphicon glyphicon-remove cancel cancel" id="left_bar"></span>
-                                    <p style="font-size:18px;padding-top:2%;padding-left:15%;">Saved Selection Criterias</p>
-                                    <a href="#" class="btn btn-default current-date" style="width:80%;margin-right:5%;" role="button">Select Criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                    <p>Saved Selection Criterias</p>
+                                    <a href="#" class="btn btn-default current-date" id="Rec_p_d" role="button">Select Criteria<span class=" glyphicon glyphicon-chevron-down"></span></a>
                                     <a href="#" id="filter-button" class="btn btn-info btn-lg filter Rectangle-65" role="button" >Set Default Criteria</a>
 
                                 </div>
                             </tr>
                             <tr>
-                                <a href="#" class="btn align_left " style="width:100%;" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left "  id="full_width" role="button">Fund<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn align_left " style="width:100%;" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left "  id="full_width" role="button">Program<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn align_left" style="width:100%;" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left" id="full_width" role="button">Location<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn align_left " style="width:100%;" role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn align_left " id="full_width"role="button">Activity<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn  align_left " style="width:100%;" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn  align_left " id="full_width" role="button">Deparment<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn  align_left" style="width:100%;" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
+                                <a href="#" class="btn  align_left"  id="full_width" role="button">Object<span class=" glyphicon glyphicon-chevron-down"></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn align_left" style="width:100%;" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" style="margin-left:1%"></span></a>
+                                <a href="#" class="btn align_left" id="full_width" role="button">Accounts with no activity<span class=" glyphicon glyphicon-chevron-down" ></span></a>
                             </tr>
                             <tr>
-                                <a href="#" class="btn align_left" style="width:100%;" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " style="margin-left:1%"></span></a>
+                                <a href="#" class="btn align_left"  id="full_width" role="button">Financial Health<span class=" glyphicon glyphicon-chevron-down  " ></span></a>
                             </tr>
                             <tr>
-                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;width:80%;" role="button" >Apply Filters</a>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter apply_filter"  id="apply_filter" role="button" >Apply Filters</a>
                             </tr>
                             <tr>
-                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important"role="button" >Reset Filters</a>
-                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter" style="margin:10px;background:white !important" role="button" >Save Criteria</a>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter apply_filter_part" role="button" >Reset Filters</a>
+                                <a href="#" id="filter-button" class="btn btn-info btn-lg filter apply_filter_part"  role="button" >Save Criteria</a>
                             </tr>
                         </table>
                     </div>
