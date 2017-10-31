@@ -423,6 +423,37 @@
         </div>
         <!--Header End-->
         <!--Content Area Start-->
+        <?php
+        $row = 1;
+        $newtemp = array();
+        if (($handle = fopen("my-cost_new.csv", "r")) !== FALSE) {
+            $data = fgetcsv($handle, 1000, ",");
+            $i = 0;
+            while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $newtemp[$i++] = $data;
+            }
+        }
+        $row = 1;
+        $newtemp_second = array();
+        if (($handle_second = fopen("my_cost_edited.csv", "r")) !== FALSE) {
+            $data_second = fgetcsv($handle_second, 1000, ",");
+            $a = 0;
+            while (($data_second = fgetcsv($handle_second, 1000, ",")) !== FALSE) {
+                $newtemp_second[$a++] = $data_second;
+            }
+        }
+        $newtemp_final  = array();
+        foreach ($newtemp as $newtemp_val) {
+
+            foreach ($newtemp_second as $newtemp_second_val){
+                if ($newtemp_val[0] == $newtemp_second_val[0]) {
+
+                    $newtemp_final[$newtemp_val[0]][] = $newtemp_second_val;
+
+                }
+            }
+        }
+        ?>
         <div class="col-md-12">
             <div class="content">
                 <div class="row">
@@ -437,45 +468,71 @@
                                         <td>Cost center</td>
                                         <td>Budget Revenue</td>
                                         <td>Actual Revenue</td>
-                                        <td>Budgeted Expenses</td>
                                         <td>Actual and Encumbrances</td>
                                         <td>Remaining Expenses</td>
                                         <td>% Spent</td>
                                         <td>Financial Health</td>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="mycost_body">
                                     <?php
                                     $row = 1;
-                                    if (($handle = fopen("my-cost.csv", "r")) !== FALSE) {
+                                    if (($handle = fopen("my-cost_new.csv", "r")) !== FALSE) {
                                         $data = fgetcsv($handle, 1000, ",");
                                         $i = 0;
                                         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                                             $newtemp[$i++] = $data;
                                             ?>
-                                            <tr>
-                                                <td scope="row"><?php echo $data[0]; ?><br/><span><?php echo $data[1]; ?></span>
+                                            <tr class="accordion">
+                                                <td scope="row"><span class="glyphicon glyphicon-plus-sign"></span><?php echo $data[0]; ?>-<span><?php echo $data[1]; ?></span>
                                                 </td>
                                                 <td><?php echo $data[2]; ?></td>
                                                 <td><?php echo $data[3]; ?></td>
                                                 <td><?php echo $data[4]; ?></td>
                                                 <td><?php echo $data[5]; ?></td>
                                                 <td><?php echo $data[6]; ?></td>
-                                                <td><?php echo $data[7]; ?></td>
                                                 <td>
-                                                    <?php if($data[7] < 0) { ?>
+                                                    <?php if($data[6] < 0) { ?>
                                                         <span class="glyphicon glyphicon-exclamation-sign excl"></span>
                                                     <?php } else { ?>
                                                         <span></span>
-                                                    <?php } if($data[7] > 0) { ?>
+                                                    <?php } if($data[6] > 0) { ?>
                                                         <span class="glyphicon glyphicon-ok-sign profit"></span>
                                                     <?php } else { ?>
                                                         <span></span>
                                                     <?php } ?>
                                                 </td>
-                                            </tr>
-                                        <?php } } ?>
-                                    </tbody>
+
+                                                <?php
+                                                foreach ($newtemp_final as $key_temp =>$key_val){
+                                                if($data[0] == $key_temp){
+
+                                                foreach ($key_val as $key_val_data){ ?>
+                                    <tr >
+                                        <td scope="row"><?php echo $key_val_data[0]; ?>-<span><?php echo $key_val_data[1]; ?></span></td>
+                                        <td><?php echo $key_val_data[2]; ?></td>
+                                        <td><?php echo $key_val_data[3]; ?></td>
+                                        <td><?php echo $key_val_data[4]; ?></td>
+                                        <td><?php echo $key_val_data[5]; ?></td>
+                                        <td><?php echo $key_val_data[6]; ?></td>
+                                        <td>
+
+                                            <?php if($key_val_data[6] < 0) { ?>
+                                                <span class="glyphicon glyphicon-exclamation-sign excl"></span>
+                                            <?php } else { ?>
+                                                <span></span>
+                                            <?php } if($key_val_data[6] > 0) { ?>
+                                                <span class="glyphicon glyphicon-ok-sign profit"></span>
+                                            <?php } else { ?>
+                                                <span></span>
+                                            <?php } ?>
+                                        </td>
+
+                                    </tr>
+                            </div>
+                                <?php   } } }    ?>
+                                </tr>
+                                <?php } } ?>
                                 </table>
                             </div>
                         </div>
@@ -503,8 +560,8 @@
                                         $data_objectview = fgetcsv($handle, 1000, ",");
                                         while (($data_objectview = fgetcsv($handle, 1000, ",")) !== FALSE) {
                                             ?>
-                                            <tr>
-                                                <td scope="row"><?php echo $data[0]; ?><br/><span><?php echo $data_objectview[1]; ?></span>
+                                            <tr class="child_tr">
+                                                <td scope="row"><span class="glyphicon glyphicon-plus-sign"></span><?php echo $data[0]; ?><br/><span><?php echo $data_objectview[1]; ?></span>
                                                 </td>
                                                 <td><?php echo $data_objectview[2]; ?></td>
                                                 <td><?php echo $data_objectview[3]; ?></td>
@@ -536,9 +593,6 @@
 
                                     </tbody>
                                 </table>
-
-
-
                             </div>
                         </div>
                         <!--Object View Table End-->
@@ -589,9 +643,19 @@ if (($handle = fopen("my-cost.csv", "r")) !== FALSE) {
     }
 }
 fclose($handle);
+$newtemp_csv =array();
+$row = 1;
+if (($handle = fopen("my-cost.csv", "r")) !== FALSE) {
+    $data = fgetcsv($handle, 1000, ",");
+    $i = 0;
+    while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+        $newtemp_csv[$i++] = $data;
+    }
+}
+fclose($handle);
 $detail_array = array();
 $dataid_array = array();
-foreach ($newtemp as $newtemp_val){
+foreach ($newtemp_csv as $newtemp_val){
     $detail_array[$newtemp_val[1]] = $newtemp_val[6] ;
     $dataid_array[$newtemp_val[1]] = $newtemp_val[0] ;
 }

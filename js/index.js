@@ -53,7 +53,7 @@ $(function () {
         if($('#wrapper').hasClass("toggled")==true){
             var bsContainerWidth =$( window ).width();
             if (bsContainerWidth == '1440')
-                $(".table").width("69.4%");
+                $(".table").width("67%");
             else if(bsContainerWidth == '1520')
                 $(".table").width("74%");
             else {
@@ -298,5 +298,12 @@ $(function () {
         $(".total_to_text").css({ "float": "none"});
     });
     /*  End budget dynamic */
+
+    $(function() {
+        $(" tbody.mycost_body tr:not(.accordion)").hide();
+        $(" tr.accordion").click(function(){
+            $(this).nextUntil("tr.accordion").fadeToggle(500);
+        }).eq(0).trigger('click');
+    });
 
 });

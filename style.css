@@ -59,7 +59,7 @@ body{font-family: 'Open Sans', sans-serif; font-size:12px;}
 }
 .secondary-bar ul li a {
 	color: #222;
-	padding: 14px 0;
+	padding: 16px 0;
 	display: inline-block;
 	padding-right: 15px;
 	padding-left: 25px;
@@ -419,7 +419,7 @@ ul.initiate {
 	color: #24433f;
 	padding-left: 25px;
 	padding-right: 25px;
-	margin: 19px 0px 0px 78px
+	/*margin: 19px 0px 0px 78px*/
 }
 .glyphicon.glyphicon-ok-sign.profit {
 	color: #008241;
@@ -591,6 +591,7 @@ td .loss {
 	box-shadow: inset 0 -4px 0 0 #8cc1ba;
 	border: solid 1px #51968d;
 	margin-left:200px;
+	margin-top:10px;
 }
 .Primary-Button {
 	width: 150px;
@@ -641,7 +642,7 @@ td .loss {
 	transition: all 0.5s ease;
 	z-index: 999;
 	top: 70px;
-	border:1px solid #b9b9b9;
+
 }
 
 #wrapper-sidebar{
@@ -701,6 +702,7 @@ td .loss {
 }
 #wrapper-filter.toggled #sidebar-wrapper-filter {
 	width: 395px;
+	border:1px solid #b9b9b9;
 }
 
 
@@ -924,12 +926,39 @@ td .loss {
 /*.glyphicon-chevron-down{float: right;}*/
 /*#sidebar-wrapper-filter{left:4%;}*/
 /*#sidebar-wrapper-filter{top:85px;}*/
-#left_bar{padding:2%;}
-#wrapper #sidebar-wrapper{	top:13.6em;}@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {	#wrapper #sidebar-wrapper{		top: 13.8em;	}}
-.align_left { text-align:left;	color:#275b3f !important;	border-bottom: 1px solid #bdbdbd;	padding:2%;}
-#sidebar-wrapper-filter .btn btn-default{text-align:left !important ;}
-#sidebar-wrapper-filter .glyphicon-chevron-down{float: right;}
-#sidebar-wrapper-filter{left:4%;top:27px;}
-.col-md-12.row .col {	margin-top:20px;	padding:10px;}
-.col .btn.btn-info.btn-lg.filter{margin-left:9%;}
-.btn.btn-default.share{margin-right:18px;}
+#left_bar{
+	padding:2%;
+}
+#wrapper #sidebar-wrapper{
+	top:12.6em;
+}
+@media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution: .001dpcm) {
+	#wrapper #sidebar-wrapper{
+		top: 12.6em;
+	}
+}
+.align_left {
+	text-align:left;
+	color:#275b3f !important;
+	border-bottom: 1px solid #bdbdbd;
+	padding:2%;
+}
+#sidebar-wrapper-filter .btn btn-default{
+	text-align:left !important ;
+}
+#sidebar-wrapper-filter .glyphicon-chevron-down{
+	float: right;
+}
+#sidebar-wrapper-filter{
+	left:2%;top:27px;
+}
+.col-md-12.row .col {
+	margin-top:20px;
+	padding:10px;
+}
+.col .btn.btn-info.btn-lg.filter{
+	margin-left:9%;
+}
+.btn.btn-default.share{
+	margin-right:18px;
+}
